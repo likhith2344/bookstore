@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="card mt-4">
+        <form (ngSubmit)="Register()"> 
+        <div class="card-header bg-primary text-white display-4">
+            Registration Form
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+                <label for="Fullname">Fullname:*</label>
+                <input 
+                    type="text" 
+                    class="form-control mx-2" 
+                    placeholder="Enter Full name" 
+                    id="Fullname"
+                    name="Fullname" >
+                    <!-- [(ngModel)]="addUserData.username"> -->
+            </div>
+            <div class="form-group">
+                <label for="email">Email:*</label>
+                <input 
+                    type="text" 
+                    class="form-control mx-2" 
+                    placeholder="Enter email" 
+                    id="Email"
+                    name="Email" >
+                    <!-- [(ngModel)]="addUserData.username"> -->
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input 
+                    type="password" 
+                    class="form-control mx-2" 
+                    placeholder="Enter password" 
+                    id="password"
+                    name="password">
+                    <!-- [(ngModel)]="addUserData.password"> -->
+            </div>
+            <div class="form-group">
+                <label for="MobileNO:">MobileNO:*</label>
+                <input 
+                    type="text" 
+                    class="form-control mx-2" 
+                    placeholder="Enter mobile number" 
+                    id="MobileNO"
+                    name="MobileNO" >
+                    <!-- [(ngModel)]="addUserData.username"> -->
+            </div>
+            
+        </div>    
+        
+        <div class="card-footer">
+            <button 
+                type="submit" 
+                class="btn btn-primary">Register</button>
+        </div>
+        </form>
+    </div>
+    </div>
+    
