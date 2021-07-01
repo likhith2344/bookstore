@@ -12,9 +12,10 @@
                     class="form-control mx-2" 
                     placeholder="Enter user name" 
                     id="userName"
-                    name="userName" >
-                    <!-- [(ngModel)]="addUserData.username"> -->
+                    name="userName" 
+                    [(ngModel)]="addUserData.username">
             </div>
+           
             <div class="form-group">
                 <label for="password">Password:</label>
                 <input 
@@ -22,18 +23,27 @@
                     class="form-control mx-2" 
                     placeholder="Enter password" 
                     id="password"
-                    name="password">
-                    <!-- [(ngModel)]="addUserData.password"> -->
+                    name="password"
+                     [(ngModel)]="addUserData.password"> 
             </div>
             <p>Role :</p>
             <div class="form-check-inline">
                 <label class="form-check-label">
-                  <input type="radio" class="form-check-input" name="optradio">admin
+                  <input type="radio" 
+                  class="form-check-input" 
+                  name="optradio" 
+                  value ="admin"
+                  [(ngModel)]="addUserData.role">admin
                 </label>
               </div>
               <div class="form-check-inline">
                 <label class="form-check-label">
-                  <input type="radio" class="form-check-input" name="optradio">customer
+                  <input 
+                    type="radio" 
+                     class="form-check-input" 
+                     name="optradio" 
+                     value = "customer"
+                     [(ngModel)]="addUserData.role">customer
                 </label>
               </div>
             

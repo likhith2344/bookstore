@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../auth.service';
+import { LoginService } from '../../login.service';
 
 @Component({
   selector: 'app-login',
@@ -8,13 +10,38 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router : Router) { }
+  addUserData = {
+    
+    username: '',
+    password: '',
+    role: ''
+  }
+
+  constructor(private loginService: LoginService,
+              private router: Router,
+              private authService :AuthService
+              ) { }
 
   ngOnInit(): void {
   }
+
   login(){
-    this.router.navigate(['header1']);
-    // this.router.navigate(['customer']);
+    console.log(this.addUserData);
+    this.loginService.login(this.addUserData).subscribe((response) => {
+      console.log(response);
+      this.authService.storeUserDetails(JSON.stringify(response));
+      this.authService.setRole(this.addUserData.role);
+      if(this.addUserData.role == "customer"){
+        this.router.navigate(['list-customer-book']);
+      }
+     else if(this.addUserData.role == "admin"){
+        this.router.navigate(['list-admin-book']);
+      }
+     
+    },
+    (error) => {
+      console.log(error);
+    })
   }
 
 }
