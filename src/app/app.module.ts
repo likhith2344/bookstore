@@ -31,6 +31,8 @@ import { EditBooksComponent } from './book/books/edit-books/edit-books.component
 import { AddBooksComponent } from './book/books/add-books/add-books.component';
 import { ListCustomerOrderComponent } from './book/order/list-customer-order/list-customer-order.component';
 import { ListAdminOrderComponent } from './book/order/list-admin-order/list-admin-order.component';
+import { ViewCustomerBookComponent } from './book/books/view-customer-book/view-customer-book.component';
+import { ReviewComponent } from './book/books/review/review.component';
 
 
 
@@ -54,7 +56,9 @@ import { ListAdminOrderComponent } from './book/order/list-admin-order/list-admi
     EditBooksComponent,
     AddBooksComponent,
     ListCustomerOrderComponent,
-    ListAdminOrderComponent
+    ListAdminOrderComponent,
+    ViewCustomerBookComponent,
+    ReviewComponent
   ],
   imports: [
     BrowserModule,

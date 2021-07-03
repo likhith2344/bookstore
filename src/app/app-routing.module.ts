@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ListAdminBooksComponent } from './book/books/list-admin-books/list-admin-books.component';
 import { ListCustomerBooksComponent } from './book/books/list-customer-books/list-customer-books.component';
+import { ViewCustomerBookComponent } from './book/books/view-customer-book/view-customer-book.component';
 
 import { CustomerComponent } from './book/customer/customer.component';
 import { ListAdminOrderComponent } from './book/order/list-admin-order/list-admin-order.component';
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'list-customer-book',
     component : ListCustomerBooksComponent
+  },
+  {
+    path: 'view-customer-book',
+    component :ViewCustomerBookComponent
   },
   {
     path: 'list-customer-order',
