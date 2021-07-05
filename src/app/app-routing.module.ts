@@ -21,7 +21,7 @@ const routes: Routes = [
     component : ListCustomerBooksComponent
   },
   {
-    path: 'view-customer-book',
+    path: 'view-customer-book/:title',
     component :ViewCustomerBookComponent
   },
   {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { book } from '../bookint';
 import { ListCustomerBooksService } from '../list-customer-books.service';
 
@@ -9,15 +10,14 @@ import { ListCustomerBooksService } from '../list-customer-books.service';
   styleUrls: ['./list-customer-books.component.css']
 })
 export class ListCustomerBooksComponent implements OnInit {
-  bookData={
+  bookData : book= <book>{
     title : '',
     author : '',
     description : '',
     price : '',
     publishhDate : '',
     lastUpdatedOn : '',
-    categories : '',
-    review : '',
+  
     image : ''
   }
 
@@ -41,7 +41,12 @@ export class ListCustomerBooksComponent implements OnInit {
     });
     console.log("this is after the asynchronous call");
   }
-view(){
-this.router.navigate(['view-customer-book']);
+view(title:any){
+  this.customerBookService.view(title).subscribe((response)=>{
+    this.bookData = response;
+    console.log(title);
+    this.router.navigate(['view-customer-book',title]);
+  })
+
 }
 }

@@ -1,1 +1,12 @@
-<p>list-customer-order works!</p>
+<div class="container">
+<div class="card" *ngFor =" let order of allOrders">
+    <form  (ngSubmit)="deleteOrder()"> 
+    <h5 class="card-header">{{order.customerPojo.customerId}}</h5>
+    <div class="card-body">
+      <h5 class="card-title">Special title treatment</h5>
+      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      <button class="btn btn-danger">delete</button>
+    </div>
+    </form>
+  </div>
+</div>

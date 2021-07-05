@@ -30,7 +30,14 @@ headers: new HttpHeaders({
 return httpOptions;
 }
 
+view(title:any): Observable<book>{
+  return this.http.get<book>('http://localhost:8097/api/v8/books/'+title, this.getHttpOptions() );
+  }
+
 getAllBooks(): Observable<book[]>{
 return this.http.get<book[]>('http://localhost:8097/api/v8/books', this.getHttpOptions());
 }
+// getAllOrders(customerId : any):Observable<order[]>{
+//   return this.http.get<order[]>('http://localhost:8097/order/get',this.getHttpOptions());
+// }
 }

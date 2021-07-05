@@ -10,6 +10,7 @@ import { LoginService } from '../../login.service';
 export class RegistryComponent implements OnInit {
 
   addCustomerData = {
+    customerId: 0,
     mobileNumber :0,
     fullName : '',
     registerOn : '',

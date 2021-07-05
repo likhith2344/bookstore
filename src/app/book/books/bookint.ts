@@ -2,12 +2,13 @@ import { categories } from "./category/category";
 import { review } from "./review/review";
 
 export interface book {
-    title : string,
+    bookId : number,
+    title : any,
     author : string,
     description : string,
     price : string,
-    publishhDate : Date,
-    lastUpdatedOn : Date,
+    publishhDate : any,
+    lastUpdatedOn : any,
     categories : categories,
     review : review,
     image : string

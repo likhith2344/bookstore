@@ -3,6 +3,7 @@ import { User } from "../user/User";
 
 
 export interface Customer{
+  customerId: number,
     mobileNumber : any,
     fullName : string,
     registerOn : any,
