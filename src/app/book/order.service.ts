@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
+import { review } from './books/review/review';
 import { order } from './order/order';
 
 @Injectable({
@@ -29,10 +30,12 @@ headers: new HttpHeaders({
 }
 return httpOptions;
 }
-  getAllOrders(customerId : any):Observable<order[]>{
-    return this.http.get<order[]>('http://localhost:8097/order/get',this.getHttpOptions());
+  getAllOrders(userName : any):Observable<order[]>{
+    console.log('from login componrnt'+userName);
+    return this.http.get<order[]>('http://localhost:8097/order/'+userName,this.getHttpOptions());
   }
-  deleteOrder(){
-
+  viewOrder(orderId :any): Observable<order>{
+    return this.http.get<order>('http://localhost:8097/order/orderId/'+orderId,this.getHttpOptions());
   }
+  
 }

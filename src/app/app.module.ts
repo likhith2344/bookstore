@@ -33,6 +33,8 @@ import { ListCustomerOrderComponent } from './book/order/list-customer-order/lis
 import { ListAdminOrderComponent } from './book/order/list-admin-order/list-admin-order.component';
 import { ViewCustomerBookComponent } from './book/books/view-customer-book/view-customer-book.component';
 import { ReviewComponent } from './book/books/review/review.component';
+import { ViewCustomerOrderComponent } from './book/order/view-customer-order/view-customer-order.component';
+import { AddOrderComponent } from './book/order/add-order/add-order.component';
 
 
 
@@ -58,7 +60,9 @@ import { ReviewComponent } from './book/books/review/review.component';
     ListCustomerOrderComponent,
     ListAdminOrderComponent,
     ViewCustomerBookComponent,
-    ReviewComponent
+    ReviewComponent,
+    ViewCustomerOrderComponent,
+    AddOrderComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { book } from '../bookint';
+import { ViewCustomerBookService } from '../view-customer-book.service';
+import { review } from './review';
 
 @Component({
   selector: 'app-review',
@@ -6,10 +10,44 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./review.component.css']
 })
 export class ReviewComponent implements OnInit {
+  BookData= {
+    bookId : 0,
+    title : '',
+    author : '',
+    description : '',
+    price : '',
+    publishhDate : '',
+    lastUpdatedOn : '',
+    image : ''
+}
+reviewData={
+  headLine : '',
+  comment : '',
+  rating : '',
+  reviewOn : '',
+  book : ''
+}
 
-  constructor() { }
+reviewsData: review[] = [];
+
+
+  constructor(private viewCustomerService :ViewCustomerBookService,
+              private activatedRoute : ActivatedRoute,
+              private router :Router){
+                
+              }
 
   ngOnInit(): void {
+    let title : any = this.activatedRoute.snapshot.paramMap.get('title')
+    console.log(title);
+    this.viewCustomerService.seeAll(title).subscribe((response)=>{
+      console.log(response);
+      this.reviewsData=response;
+      console.log(this.reviewsData);
+    })
+  }
+  submit(){
+    
   }
 
 }

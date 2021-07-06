@@ -5,6 +5,7 @@ import { Address } from "../user/address";
 import { User } from "../user/User";
 
 export interface order{
+    orderId :number,
     quantity:number,
     orderTotal: number,
     status: string,

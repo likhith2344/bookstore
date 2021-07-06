@@ -12,9 +12,9 @@ import { ViewCustomerBookService } from '../view-customer-book.service';
   styleUrls: ['./view-customer-book.component.css']
 })
 export class ViewCustomerBookComponent implements OnInit {
-  bookForm:FormGroup;
+  // bookForm:FormGroup;
 
-  BookData: book =<book> {
+  BookData= {
     bookId : 0,
     title : '',
     author : '',
@@ -24,28 +24,38 @@ export class ViewCustomerBookComponent implements OnInit {
     lastUpdatedOn : '',
     image : ''
 }
+reviewData={
+  headLine : '',
+  comment : '',
+  rating : '',
+  reviewOn : '',
+  book : ''
+}
+
+bookData: book[] = [];
 
 
   constructor(private viewCustomerService :ViewCustomerBookService,
               private activatedRoute : ActivatedRoute,
               private router :Router) { 
-    this.bookForm = new FormGroup({
-      title : new FormControl(),
-      bookId : new FormControl(),
-      author : new FormControl(),
-      description : new FormControl(),
-       image: new FormControl(),
-      // productImageUrl : new FormControl()
-    })
+    // this.bookForm = new FormGroup({
+    //   title : new FormControl(),
+    //   bookId : new FormControl(),
+    //   author : new FormControl(),
+    //   description : new FormControl(),
+    //    image: new FormControl(),
+    //   // productImageUrl : new FormControl()
+    // })
+    this.router.navigate(['view-customer-book']);
   }
 
   ngOnInit(): void {
     let title : any = this.activatedRoute.snapshot.paramMap.get('title')
-    console.log(title);
+    console.log("before response"+title);
     this.viewCustomerService.getBook(title).subscribe((response)=>{
    
-      this.bookForm.setValue(response);
-      console.log(title);
+      // this.BookData.setValue(response);
+      console.log("after response"+title);
      this.BookData= response;
      console.log(this.BookData);
     }),
@@ -65,6 +75,16 @@ export class ViewCustomerBookComponent implements OnInit {
     
     this.router.navigate(['list-customer-book']);
     
+  }
+  
+  buyNow(){
+this.router.navigate(['add-order'])
+  }
+  addReview(review :any){
+    this.router.navigate(['review']);
+  }
+  seeAll(title:any){
+     this.router.navigate(['review',title]);
   }
 }
 

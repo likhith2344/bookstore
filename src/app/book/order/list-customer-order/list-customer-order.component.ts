@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LoginService } from '../../login.service';
 
 import { OrderService } from '../../order.service';
+import { LoginComponent } from '../../user/login/login.component';
 import { order } from '../order';
 
 
@@ -13,36 +15,43 @@ import { order } from '../order';
 export class ListCustomerOrderComponent implements OnInit {
 
   allOrder={
+    orderId :0,
     quantity:0,
     orderTotal: 0,
     status: '',
     paymentMethod: '',
     orderDate: '',
     deleted:0,
-    customer : {
-      customerId :0,
+    customerPojo : {
+      customerId :'',
       mobileNumber : 0,
       fullName : '',
       registerOn : ''
+      
     }
   
 
     
 }
-  constructor(private router : Router,
+  constructor(private router: Router,
               private orderService: OrderService,
-              private activatedRoute :ActivatedRoute ) { }
+              private activatedRoute: ActivatedRoute,
+             private loginService :LoginService) {
+              // this.router.navigate(['list-customer-order']);
+              }
 
 allOrders: order [] =[];
 myError ='';
   
   ngOnInit(): void {
-    let customerId : any =this.activatedRoute.snapshot.paramMap.get('customerId')
-    this.orderService.getAllOrders(customerId).subscribe((response) => {
+    let userName : any =this.activatedRoute.snapshot.paramMap.get('userName')
+    console.log('from param '+userName);
+    this.orderService.getAllOrders(this.loginService.newuser.username).subscribe((response) => {
       console.log(response);
+     // console.log(customerId);
       this.allOrders = response;
       console.log(this.allOrders);
-      //this.router.navigate(['list-customer-order',customerId]);
+     //  this.router.navigate(['list-customer-order',customerId]);
     },
     (error) => {
       console.log(error.error.message);
@@ -52,8 +61,8 @@ myError ='';
     
   }
   
-deleteOrder(){
-
+viewOrder(orderId : any){
+this.router.navigate(['view-customer-order',orderId])
 }
 }
 // view(title:any){

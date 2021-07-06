@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthService } from '../auth.service';
 import { book } from './bookint';
+import { review } from './review/review';
 
 @Injectable({
   providedIn: 'root'
@@ -34,6 +35,13 @@ export class ViewCustomerBookService {
     }
     getAllBooks(): Observable<book[]>{
       return this.httpClient.get<book[]>('http://localhost:8097/api/v8/books', this.getHttpOptions());
+      }
+      addReview(reviewData :review): Observable<review>{
+        return this.httpClient.post<review> ('http://localhost:8097/api/v6/review/add',reviewData);
+    
+      }
+      seeAll(title: any):Observable<review[]>{
+        return this.httpClient.get<review[]>('http://localhost:8097/api/v6/review/'+title,this.getHttpOptions());
       }
       }
 

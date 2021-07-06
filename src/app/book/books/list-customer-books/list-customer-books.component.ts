@@ -26,7 +26,7 @@ export class ListCustomerBooksComponent implements OnInit {
 
   myError = '';
   constructor(private customerBookService:ListCustomerBooksService, private router: Router) {
-    //this.productService = productService;
+    this.router.navigate(['list-customer-books']);
    }
 
   ngOnInit(): void {
