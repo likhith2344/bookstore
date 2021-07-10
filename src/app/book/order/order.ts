@@ -14,4 +14,16 @@ export interface order{
     bookpojo: book[],
     orderDate: Date,
     deleted:number
+    // customerPojo: {
+    //     customerId: number,
+    //     mobileNumber: String,
+    //     fullName: String,
+    //     registerOn:Date,
+    //     addressPojo: {
+    //         addressId: number,
+    //         address: String,
+    //         city: String,
+    //         country: String,
+    //         pincode: number
+    //     }
 }

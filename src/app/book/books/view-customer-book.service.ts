@@ -38,7 +38,7 @@ export class ViewCustomerBookService {
       return this.httpClient.get<book[]>('http://localhost:8097/api/v8/books', this.getHttpOptions());
       }
       addReview(reviewData :review): Observable<review>{
-        return this.httpClient.post<review> ('http://localhost:8097/api/v6/review/add',reviewData);
+        return this.httpClient.post<review> ('http://localhost:8097/api/v6/reviews/add',reviewData);
     
       }
       reviewByUserName(userName:any):Observable<review>{
@@ -50,7 +50,7 @@ export class ViewCustomerBookService {
       getFindBookById(bookId: number):Observable<book>{
         return this.httpClient.get<book>('http://localhost:8097/api/v8/book/'+bookId,this.getHttpOptions());
       }
-      
+     
      
       }
 

@@ -37,6 +37,11 @@ import { ViewCustomerOrderComponent } from './book/order/view-customer-order/vie
 import { AddOrderComponent } from './book/order/add-order/add-order.component';
 import { AddReviewComponent } from './book/books/review/add-review/add-review.component';
 import { CartComponent } from './book/cart/cart.component';
+import { EditCustomerComponent } from './book/customer/edit-customer/edit-customer.component';
+import { ListAllBooksComponent } from './book/books/list-all-books/list-all-books.component';
+import { ManageBooksComponent } from './book/books/list-admin-books/manage-books/manage-books.component';
+import { AddCategoryComponent } from './book/books/category/add-category/add-category.component';
+import { ListCategoryComponent } from './book/books/category/list-category/list-category.component';
 
 
 
@@ -66,7 +71,17 @@ import { CartComponent } from './book/cart/cart.component';
     ViewCustomerOrderComponent,
     AddOrderComponent,
     AddReviewComponent,
-    CartComponent
+    CartComponent,
+    EditCustomerComponent,
+    ListAllBooksComponent,
+    ManageBooksComponent,
+    AddCategoryComponent,
+    ListCategoryComponent
+
+
+    
+  
+    
   ],
   imports: [
     BrowserModule,

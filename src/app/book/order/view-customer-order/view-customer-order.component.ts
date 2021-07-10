@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OrderService } from '../../order.service';
+import { order } from '../order';
 
 @Component({
   selector: 'app-view-customer-order',
@@ -8,18 +9,37 @@ import { OrderService } from '../../order.service';
   styleUrls: ['./view-customer-order.component.css']
 })
 export class ViewCustomerOrderComponent implements OnInit {
-  allOrder={
+  allOrder: order={
     orderId :0,
     quantity:0,
     orderTotal: 0,
-    status: '',
-    paymentMethod: '',
+    status: 'pending',
+    paymentMethod: 'by cash',
     orderDate: new Date(),
     deleted:0,
-    
-    
-  
+    customerPojo:{
+      customerId: 0,
+    mobileNumber : '',
+    fullName : '',
+    registerOn : '',
+    userPojo :{
+      username: '',
+    password: '',
+    role : ''
+    },
+  addressPojo:  {
+    addressId: 0,
+    address: '',
+    city: '',
+    country: '',
+    pincode: ''
   }
+  },
+  bookpojo:[] 
+    }
+
+  
+  
   
   constructor(private router : Router,
               private activatedRoute : ActivatedRoute,

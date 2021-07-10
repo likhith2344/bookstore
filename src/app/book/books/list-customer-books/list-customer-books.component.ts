@@ -11,7 +11,7 @@ import { ListCustomerBooksService } from '../list-customer-books.service';
   styleUrls: ['./list-customer-books.component.css']
 })
 export class ListCustomerBooksComponent implements OnInit {
-  bookData : book= <book>{
+  bookData : any={
     title : '',
     author : '',
     description : '',

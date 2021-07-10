@@ -7,9 +7,9 @@ export interface book {
     author : string,
     description : string,
     price : string,
-    publishhDate : any,
+    publishDate : any,
     lastUpdatedOn : any,
     categories : categories,
-    review : review[],
+    // review : review[],
     image : string
 }

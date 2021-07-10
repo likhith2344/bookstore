@@ -9,7 +9,7 @@
           List Books</h5></a>
       </li>
       <li class="nav-item" *ngIf = "getRole()=='admin'">
-        <a class="nav-link" routerLink="list-admin-books">Manage Books</a>
+        <a class="nav-link" routerLink="manage-book">Manage Books</a>
       </li>
       <li class="nav-item" *ngIf = "getRole()=='customer'">
         <a class="nav-link" routerLink="list-customer-order"><h5 style=color:aliceblue>
@@ -17,6 +17,12 @@
       </li>
       <li class="nav-item" *ngIf = "getRole()=='admin'">
         <a class="nav-link" routerLink="list-admin-order"> View All Orders</a>
+      </li>
+      <!-- <li class="nav-item" *ngIf = "getRole()=='admin'">
+        <a class="nav-link" routerLink="list-admin-books"> <h5 style=color:aliceblue> list Books</h5></a>
+      </li> -->
+      <li class="nav-item" *ngIf = "getRole()=='admin'">
+        <a class="nav-link" routerLink="list-all-books"> <h5 style=color:aliceblue> list all Books</h5></a>
       </li>
       <li class="nav-item" *ngIf = "getUser()==null ">
         <a class="nav-link" routerLink="login"><h4 style=color:aliceblue>Login</h4></a>
@@ -38,6 +44,10 @@
         <input class="form-control mr-sm-2" type="search" placeholder="Search">
           <button class="btn btn-success" type="submit">Search</button>
         </form>
+      </li>
+      <li class="nav-item" *ngIf = "getRole()=='customer'">
+        <a class="nav-link" routerLink="edit-customer"><h5 style=color:aliceblue>
+          UpdateProfile</h5></a>
       </li>
        <li class="nav-item" *ngIf = "getUser()!=null ">
         <a class="nav-link" routerLink="logout"><h5 style=color:red>

@@ -1,0 +1,37 @@
+<div class="container">
+    <p class='display-4'>{{ title }}</p>
+    <ul class="list-group mt-3">
+        <li class="list-group-item" *ngFor="let book1 of allBooks">
+            <div class='d-flex justify-content-between'>
+                <div class="container ml-5">
+
+                    <div class="row">
+                        <div class="col">
+                            <img [src]="book1.image" alt="" height=150 width=100 /><br>
+                            <div class="w-100"></div>
+                        </div>
+                        <div class="col">
+                            <div class="row"><b>Book Id : </b>&nbsp;{{book1.bookId }}</div>
+                            <div class="row"><b>Category Name : </b>&nbsp;{{book1.categories.categoryName }}</div>
+                            <div class="row"><b>Title : </b>&nbsp;{{book1.title}}</div>
+                            <div class="row"><b>Published Date : </b>&nbsp;{{book1.publishDate}} </div>
+                            <div class="row"><b>Updated Date : </b>&nbsp;{{book1.lastUpdatedOn}} </div>
+                            <div class="row"><b>Price : </b>&nbsp; Rs. {{ book1.price }} </div>
+                        </div>
+                    </div><br>
+                </div>
+
+
+
+                <div>
+
+                    <button type='button' class='btn btn-danger ml-3 ' (click)="deleteBook(book1.bookId)">
+                        Delete
+                    </button>
+                </div>
+
+            </div>
+
+        </li>
+    </ul>
+</div>

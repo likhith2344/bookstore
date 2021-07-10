@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="card mt-4">
+        <form (ngSubmit)="editCustomer()">
+            <div class="card-header bg-success text-white display-4">
+                Edit Customer Form
+            </div>
+            <div class="card-body">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="firstName">First Name:</label>
+                        <input type="text" class="form-control mx-2" id="firstName" name="firstName"
+                            [(ngModel)]=customer.fullName>
+                   
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="mobileNumber">Mobile Number:</label>
+                        <input type="text" class="form-control mx-2" id="mobileNumber" name="mobileNumber"
+                            [(ngModel)]=customer.mobileNumber>
+                    </div>
+                 
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="streetNo">Street Number:</label>
+                        <input type="text" class="form-control mx-2" id="streetNo" name="streetNo"
+                            [(ngModel)]=customer.addressPojo.address>
+                    </div>
+
+                    
+                    <div class="form-group col-md-4">
+                        <label for="city">City:</label>
+                        <input type="text" class="form-control mx-2" id="city" name="city"
+                            [(ngModel)]=customer.addressPojo.city>
+                    </div>
+                </div>
+
+               
+                    <div class="form-group col-md-4">
+                        <label for="country">Country:</label>
+                        <input type="text" class="form-control mx-2" id="country" name="country"
+                            [(ngModel)]=customer.addressPojo.country>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="pincode">Pincode:</label>
+                        <input type="number" class="form-control mx-2" id="pincode" name="pincode"
+                            [(ngModel)]=customer.addressPojo.pincode>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-success">Edit Customer</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { OrderService } from '../../order.service';
 
 @Component({
   selector: 'app-list-admin-order',
@@ -7,9 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListAdminOrderComponent implements OnInit {
 
-  constructor() { }
+  title: string = "List all book details"
+   allOrders : any [] =[];
+   constructor(private orderService: OrderService, private router: Router) { }
 
-  ngOnInit(): void {
+   ngOnInit(): void {
+     this.orderService.getAllOrderss().subscribe((response)=>{ 
+       console.log("resp in LAO:" +JSON.stringify(response));
+       this.allOrders = response;  
+       console.log(this.allOrders);
+    });
   }
+
+
+  listAllOrders() {
+    this.orderService.getAllOrderss().subscribe((response)=>{
+        console.log("resp*****:" +response);
+       this.allOrders = response;
+       console.log("allOrders:" + this.allOrders );
+    });
+    console.log("aync" );
+    // let book: any = this.orderService.getAllOrders();
+    // console.log("json obj:" + JSON.stringify(book));
+  }
+
 
 }

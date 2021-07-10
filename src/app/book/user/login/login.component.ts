@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['list-customer-book']);
       }
      else if(this.addUserData.role == "admin"){
-        this.router.navigate(['list-admin-book']);
+        this.router.navigate(['manage-book']);
       }
      
     },

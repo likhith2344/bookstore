@@ -1,0 +1,18 @@
+h1 {text-align: center; color:tomato}
+h5 {text-align: center;}
+p {text-align: center;}
+
+.center {
+    text-align: center;
+    color: red;
+  }
+
+  .img-thumbnail:hover {
+    position:relative;
+    top:-25px;
+    left:-35px;
+    width:500px;
+    height:auto;
+    display:block;
+    z-index:999;
+}

@@ -34,4 +34,7 @@ export class CustomerService {
   getAllCustomers():Observable<Customer[]>{
      return this.http.get<Customer[]>(this.baseUrl, this.getHttpOptions());
   }
+  updateCustomer(Customer:Customer):Observable<Customer>{
+    return this.http.put<Customer>(this.baseUrl,Customer, this.getHttpOptions());
+  }
 }

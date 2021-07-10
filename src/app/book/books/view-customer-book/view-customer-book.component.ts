@@ -26,11 +26,14 @@ export class ViewCustomerBookComponent implements OnInit {
     author : '',
     description : '',
     price : '',
-    publishhDate : '',
+    publishDate : '',
     lastUpdatedOn : '',
     image : '',
     categories : {
-      categoryName :''
+      categoryId : 0,
+      categoryName :'',
+      categoryImageUrl: ''
+
     }
   //   review : {
   //     headLine : '',
@@ -42,29 +45,44 @@ export class ViewCustomerBookComponent implements OnInit {
 reviewData={
   headLine : '',
   comment : '',
-  rating : '',
-  reviewOn : '',
+  rating : 0,
+  reviewOn : new Date(),
   book : {
     bookId : 0,
     title : '',
     author : '',
     description : '',
     price : '',
-    publishhDate : '',
+    publishDate : '',
     lastUpdatedOn : '',
-    image : ''
+    image : '',
+    categories:{
+      categoryId : 0,
+      categoryName :'',
+      categoryImageUrl: ''
+     }
+    // review :book[]=[]
 
   },
   customer :{
-    customerId :'',
+    customerId :0,
     mobileNumber : 0,
     fullName : '',
     registerOn : '',
     userPojo:{
+    
       username: '',
     password: '',
-    role : 'customer'
-    }
+    role : ''
+    },
+  
+  addressPojo:  {
+    addressId: 0,
+    address: '',
+    city: '',
+    country: '',
+    pincode: ''
+  }
   }
 }
 allOrder={
@@ -77,6 +95,7 @@ allOrder={
   deleted:0,
 
 }
+
 
 bookData: book[] = [];
 reviewsData: review[] =[]; 
@@ -111,23 +130,33 @@ reviewsData: review[] =[];
      
      console.log(this.BookData);
      console.log(this.reviewData.book.author);
-     });
+
+     let userName : any =this.activatedRoute.snapshot.paramMap.get('userName')
+    console.log('from param '+userName);
+    this.orderService.getCustomerByUserName(this.loginService.newuser.username).subscribe((response) => {
+    this.reviewData.customer=response;
+    console.log(this.reviewData);
+    this.viewCustomerService.addReview(this.reviewData).subscribe((response)=>{
+      this.reviewData=response;
+      console.log(this.reviewData);
+    });
+
+    
+    });
+  });
 
   //  this.viewCustomerService.getBook(this.BookData.title).subscribe((response)=>{
   //   console.log(response);
     
   
   //  });
-  //  let userName : any =this.activatedRoute.snapshot.paramMap.get('username')
-  //   console.log('from param '+userName);
-  //   this.viewCustomerService.reviewByUserName(this.loginService.newuser.username).subscribe((response) => {
-  //     console.log("username"+response);
-  //  //   this.reviewData.customer.userPojo=response;
+   
 
     
     // });
   
   }
+
  
    back(){
     

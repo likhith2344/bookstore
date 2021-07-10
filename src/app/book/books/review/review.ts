@@ -6,7 +6,7 @@ export interface review {
     headLine : string,
     comment : string,
     rating : number,
-    reviewOn : any,
+    reviewOn : Date,
     book :   book,
     customer : Customer
 }
