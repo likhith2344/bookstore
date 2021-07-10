@@ -14,8 +14,10 @@ export class ViewCustomerOrderComponent implements OnInit {
     orderTotal: 0,
     status: '',
     paymentMethod: '',
-    orderDate: '',
+    orderDate: new Date(),
     deleted:0,
+    
+    
   
   }
   
@@ -40,6 +42,10 @@ export class ViewCustomerOrderComponent implements OnInit {
   //   console.log(response);
   
   // });
+  }
+
+  back(){
+    this.router.navigate(['list-customer-order']);
   }
 
 }

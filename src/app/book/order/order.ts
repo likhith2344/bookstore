@@ -11,7 +11,7 @@ export interface order{
     status: string,
     paymentMethod: string,
     customerPojo: Customer,    
-    book: book,
-    orderDate: any,
+    bookpojo: book[],
+    orderDate: Date,
     deleted:number
 }

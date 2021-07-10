@@ -1,41 +1,66 @@
-
-
-  <div class="container">
-    <!-- <div class="row row-cols-1 row-cols-md-2">
+<div class="container">
+  <!-- <div class="row row-cols-1 row-cols-md-2">
       <div class="col mb-4"> -->
-        <div class="row row-cols-1 row-cols-md-2 g-4" style="width: 2000px;">
-          <div class="col">
-          
-   
+  <div class="row row-cols-1 row-cols-md-2 g-4" style="width: 2000px;">
+    <div class="col">
+
+
       <div class="card-columns">
-      <!-- <div class="row">-->
-      
-        <div class="card" *ngFor = "let bookint of allBook"  >
-          <img [src]="bookint.image"class="card-img-top" alt="...">  
-          <form  (ngSubmit)="view(bookint.title)"> 
-          
-              <div class="card-body "  >
-                <div class="card-title" >
-          </div>
-                   <p>bookName ={{bookint.title}}</p> 
-                </div>
-                 <div class="card-footer "> 
-          <!-- <button style="background: url(myimage.png)" ... /> -->
-                    <button class="btn btn-theme" type="submit" id="more" >view</button>
-                    <button class="btn btn-theme float-right" type="submit" id="toright">Add to cart</button> 
-                </div> 
-              </form>
-          </div>
-        
+        <!-- <div class="row">-->
+
+        <div class="card" *ngFor="let bookint of allBook">
+          <img [src]="bookint.image" class="card-img-top" alt="...">
+         
+
+            <div class="card-body ">
+              <div class="card-title">
+              </div>
+              <p>{{bookint.title}}</p>
+              <p>{{bookint.author}}</p>
+            </div>
+            <div class="card-footer ">
+              <!-- <button style="background: url(myimage.png)" ... /> -->
+              <button class="btn btn-theme" type="button" id="more"
+              (click)='view(bookint.title)'>view</button>
+              <button class="btn btn-theme float-right" type="button" id="toright"
+               (click)='addToCart(bookint)'>Add to
+                cart</button>
+            </div>
+         
+        </div>
+
         <!-- </div> -->
 
-      </div> 
-  
-</div>
- </div>
+      </div>
+
+    </div>
+  </div>
   <!-- </div> -->
-    
-    
-      
-   
-  <!-- /.container -->
+
+
+<!------------------------New Card Layout -------------->
+
+
+<div class="container" style="margin-top:50px;">
+  <div class="row">
+      <div class="col-md-3">
+          <div class="card-sl">
+              <div class="card-image">
+                  <img
+                      src="https://images.unsplash.com/photo-1458682625221-3a45f8a844c7?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y29taWMlMjBjb3ZlcnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60" />
+              </div>
+
+              
+              <div class="card-heading">
+                  Title
+              </div>
+              <div class="card-text">
+                  Author              </div>
+              <div class="card-text">
+                  Price
+              </div>
+              <button routerLink='#' class="card-button1"> View</button>
+              <a class="card-button" > Add To Cart</a>
+          </div>
+      </div>
+  </div>  

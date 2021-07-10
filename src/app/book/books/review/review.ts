@@ -7,6 +7,6 @@ export interface review {
     comment : string,
     rating : number,
     reviewOn : any,
-    book : book,
+    book :   book,
     customer : Customer
 }

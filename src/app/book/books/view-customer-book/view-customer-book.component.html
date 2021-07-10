@@ -1,85 +1,120 @@
- 
-    <div class="container"> 
-        <div class="card mx-auto col-md-8 mt-5" >
-            <form  (ngSubmit)="back()" 
-                    (ngSubmit) = "buyNow()" >
-                
-            <div class="card-header text-white display-4" style="text-align: center;font-family:cursive">
-             <h3> </h3>
-            </div>
-           
-            <div class="card-body text-center mx-auto">
-              <div class="form-group">
-                      <p>
-                       <img class="card-img-top" [src]="BookData.image"> 
-                    </p> 
-                      
-                      
-                      </div>
-      
-                      <div class="form-group">
-                    <label for="productId">{{BookData.title}}</label>
-                   
-                    </div>
-                    
-               <div class="form-group">
-                    <label for="productName">{{BookData.author}}</label>
-                 
-                    </div>
-                    <div class="form-group">
-                    <label for="productCost">{{BookData.description}}</label>
-                    
-                    </div>
-                  
-                
-            </div>
-            <div class="card-footer" >
-                <div class="d-flex justify-content-between  mb-3">
-                <button 
-                type="submit" 
-                class="btn btn-outline  btn-iconed btn-rounded " style="background-color: yellowgreen;">
-                <i class="fa fa-chevron-left"></i> <span class="spn">
-                Back </span></button>
-                <button 
-                type="submit" 
-                class="btn btn-outline  btn-iconed btn-rounded" style="background-color: yellow;">
-                <i class="fa fa-chevron-right"></i> <span class="spn">
-                BuyNow </span></button>
-            </div>
-        </div>
-      
-        </form>
-          </div> 
+<div class="container">
+    <div class="card mx-auto col-md-8 mt-5">
+       
 
-          <div class="container pt-1">
-            <div class="card mx-auto col-md-8 " >
-                <div class="card-header text-black display-4" 
-                style="text-align: center;font-family:cursive">
-                    <h3>Review</h3>
-                    <h5>Star rating </h5>
-                        <div class="rating"> <input type="radio"
-                             name="rating" value="5" id="5"><label for="5">
-                                 ☆
-                                </label> 
-                                <input type="radio" name="rating" value="4" id="4">
-                                <label for="4">☆
-                                </label>
-                                 <input type="radio" name="rating" value="3" id="3">
-                                <label for="3">☆</label> 
-                                <input type="radio" name="rating" value="2" id="2">
-                                <label for="2">☆</label> 
-                                <input type="radio" name="rating" value="1" id="1">
-                                <label for="1">☆</label>
-                        </div>
-                    <textarea class="form-control" id="textAreaExample1"  ></textarea>
-                    <div class="d-flex justify-content-between  mb-3">
-                    <button class = "btn btn-secondary btn-sm"type="submit" (click) = addReview(reviewData.book)>
+            <div class="card-header text-white display-4" style="text-align: center;font-family:cursive">
+                <h3> </h3>
+            </div>
+
+            <div class="card-body text-center mx-auto">
+                <div class="form-group">
+                    <p>
+                        <img class="card-img-top" [src]="BookData.image">
+                    </p>
+
+
+                </div>
+
+                <div class="form-group">
+                    <label for="productId">{{BookData.title}}</label>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="productName">{{BookData.author}}</label>
+
+                </div>
+                <div class="form-group">
+                    <label for="productCost">{{BookData.description}}</label>
+
+                </div>
+                <div *ngIf="BookData">
+
+                </div>
+
+
+            </div>
+            <div class="card-footer">
+                <div class="d-flex justify-content-between  mb-3">
+                    <button type="button" class="btn btn-outline  btn-iconed btn-rounded "
+                        style="background-color: yellowgreen;">
+                        <i class="fa fa-chevron-left"></i> <span class="spn">
+                            Back </span></button>
+                    <button type="button" class="btn btn-outline  btn-iconed btn-rounded"
+                        style="background-color: yellow;" (click)="addToCart(BookData)">
+                        <i class="fa fa-chevron-center"></i> <span class="spn">
+                            Add To Cart </span></button>
+                    <button type="button" class="btn btn-outline  btn-iconed btn-rounded"
+                        style="background-color: yellow;" (click)="buyNow(BookData)">
+                        <i class="fa fa-chevron-right"></i> <span class="spn">
+                            Buy Now </span></button>
+                </div>
+            </div>
+
+        
+    </div>
+
+    <div class="container pt-1">
+        <div class="card mx-auto col-md-8  ">
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active"  style="background-color:black; color:white ;">
+                <div class="d-flex w-100 justify-content-between" >
+                  <h2 class="mb-1" style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                      People's Reviews</h2>
+                </div>
+              </a>
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">HeadLine:{{reviewData.headLine}}</h5>
+                  <div class="rating"> <input type="radio"
+                                   name="rating" value="5" id="5"><label for="5">
+                                       ☆
+                                      </label> 
+                                      <input type="radio" name="rating" value="4" id="4">
+                                      <label for="4">☆
+                                      </label>
+                                       <input type="radio" name="rating" value="3" id="3">
+                                      <label for="3">☆</label> 
+                                      <input type="radio" name="rating" value="2" id="2">
+                                      <label for="2">☆</label> 
+                                      <input type="radio" name="rating" value="1" id="1">
+                                      <label for="1">☆</label>
+                              </div>
+                  <small class="text-dark">Date :{{reviewData.reviewOn}}</small>
+                </div>
+                
+                <p style="text-align: left;">Comment{{reviewData.comment}}</p>
+                <small class="text-dark">Username/ fullanme{{reviewData.customer.fullName}}</small>
+              </a>
+             <div class="card-header text-black display-4" style="text-align: center;font-family:cursive">
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active"  style="background-color:chartreuse; color:dodgerblue;">
+                    <div class="d-flex w-100 justify-content-between" >
+                      <h2 class="mb-1" style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                          Leave a comment</h2>
+                    </div>
+                  </a>
+                <p class="mb-2">Rate the Book</p>
+                <div class="rating"> <input type="radio" name="rating" value="5" id="5">
+                    <label for="5">
+                        ☆
+                    </label>
+                    <input type="radio" name="rating" value="4" id="4">
+                    <label for="4">☆
+                    </label>
+                    <input type="radio" name="rating" value="3" id="3">
+                    <label for="3">☆</label>
+                    <input type="radio" name="rating" value="2" id="2">
+                    <label for="2">☆</label>
+                    <input type="radio" name="rating" value="1" id="1">
+                    <label for="1">☆</label>
+                </div>
+                <textarea class="form-control" id="textAreaExample1"></textarea>
+                <div class="d-flex justify-content-between  mb-3">
+                    <button class="btn btn-secondary btn-sm" type="submit" 
+                    (click)='addReview(reviewData.book)'>
                         Add Review
                     </button>
-                    <button class = "btn btn-secondary btn-sm"type="submit" (click) = seeAll(BookData.title)>
-                        See All Review
-                    </button>
-                    </div>
+                    
                 </div>
-                </div>
-          </div>
+            </div>-->
+        </div>
+    </div> 

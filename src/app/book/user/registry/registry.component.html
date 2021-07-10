@@ -1,4 +1,139 @@
 <div class="container">
+    <div class="content mt-1" style="background:whitesmoke">
+        <form (ngSubmit)="Register()"> 
+        <div class="card-header" style="background:thistle">
+            <h1 class="text-center">Registration Form</h1>
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+                <i class='fas fa-address-card' style='font-size:20px'></i>
+                <label for="fullName" style="font-family:cursive">Full Name:*</label>
+                <input 
+                    type="text" 
+                    class="form-control mx-2" 
+                    placeholder="Enter Full name" 
+                    id="fullName"
+                    name="fullName" 
+                     [(ngModel)]="addCustomerData.fullName"> 
+            </div>
+            <div class="row">
+                <div class="col-sm-6 form-group">
+                <i class='fas fa-envelope-open' style='font-size:20px'></i>
+                <label for="email"style="font-family:cursive">Email:*</label>
+                <input 
+                    type="text" 
+                    class="form-control mx-2" 
+                    placeholder="Enter email" 
+                    id="Email"
+                    name="Email" 
+                     [(ngModel)]="addCustomerData.userPojo.email"> 
+        </div>
+        <div class="col-sm-6 form-group">
+            <i class='fas fa-key' style='font-size:20px'></i>
+                <label for="password"style="font-family:cursive">Password:*</label>
+                <input 
+                    type="password" 
+                    class="form-control mx-2" 
+                    placeholder="Enter password" 
+                    id="password"
+                    name="password"
+                     [(ngModel)]="addCustomerData.userPojo.password"> 
+        </div>
+            </div>
+            <div class="form-group">
+                <i class='fas fa-mobile' style='font-size:20px'></i>
+                <label for="MobileNO:"style="font-family:cursive">Mobile Number:*</label>
+                <input 
+                    type="text" 
+                    class="form-control mx-2" 
+                    placeholder="Enter mobile number" 
+                    id="MobileNO"
+                    name="MobileNO" 
+                     [(ngModel)]="addCustomerData.mobileNumber"> 
+            </div>
+            <div class="form-group">
+                <i class='fas fa-user-alt' style='font-size:20px'></i>
+                <label for="username"style="font-family:cursive">Username:*</label>
+                <input 
+                    type="text" 
+                    class="form-control mx-2" 
+                    placeholder="Enter username" 
+                    id="username"
+                    name="username" 
+                     [(ngModel)]="addCustomerData.userPojo.username"> 
+            </div>
+            <div class="form-group">
+                <i class='fas fa-map-marker-alt' style='font-size:20px'></i>
+                <label for="address"style="font-family:cursive">Address:*</label>
+                <input 
+                    type="text"
+                    class="form-control mx-2" 
+                    placeholder="Enter username" 
+                    id="address"
+                    name="address" 
+                     [(ngModel)]="addCustomerData.addressPojo.address"> 
+            </div>
+            <div class="row">
+            <div class="col-sm-4 form-group">
+                <i class='fas fa-city' style='font-size:20px'></i>
+                <label for="city"style="font-family:cursive">City:</label>
+                <input 
+                    type="text" 
+                    class="form-control mx-2" 
+                    placeholder="Enter cityname" 
+                    id="city"
+                    name="city" 
+                     [(ngModel)]="addCustomerData.addressPojo.city"> 
+            </div>
+            
+            <div class="col-sm-4 form-group">
+                <i class='fas fa-globe' style='font-size:20px'></i>
+                <label for="country"style="font-family:cursive">Country:*</label>
+                <input 
+                    type="text" 
+                    class="form-control mx-2" 
+                    placeholder="Enter countryname" 
+                    id="countryname"
+                    name="countryname" 
+                     [(ngModel)]="addCustomerData.addressPojo.country"> 
+            </div>
+            <div class="col-sm-4 form-group">
+                <i class='fas fa-map-marker' style='font-size:20px'></i>
+                <label for="pincode"style="font-family:cursive">Pincode:*</label>
+                <input 
+                    type="text" 
+                    class="form-control mx-2" 
+                    placeholder="Enter pincode" 
+                    id="pincode"
+                    name="pincode" 
+                     [(ngModel)]="addCustomerData.addressPojo.pincode"> 
+            </div>
+        </div>
+            <div class="form-group">
+                <i class='fas fa-calendar-alt' style='font-size:20px'></i>
+                <label for="registerOn"style="font-family:cursive">Register Date:*</label>
+                <input 
+                    type="date" 
+                    class="form-control mx-2" 
+                    placeholder="Enter register date" 
+                    id="registerdate"
+                    name="registerdate" 
+                     [(ngModel)]="addCustomerData.registerOn"> 
+            </div>
+        </div>    
+        
+        <div class="card-footer my-3" style="background:wheat">
+            <button 
+                type="submit" 
+                class="btn btn-primary">Register</button>
+        </div>
+        </form>
+    </div>
+    </div>
+    
+
+
+<!-- <div class="container">
     <div class="card mt-4">
         <form (ngSubmit)="Register()"> 
         <div class="card-header bg-primary text-white display-4">
@@ -115,4 +250,4 @@
         </form>
     </div>
     </div>
-    
+     -->

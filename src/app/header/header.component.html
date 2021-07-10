@@ -1,26 +1,38 @@
-<nav class="navbar navbar-expand-sm bg-light">
+<div class="shadow-xlg mb-4">
+  <nav class="navbar navbar-expand-sm bg-dark sticky-top">
     <ul class="navbar-nav">
+      <a class="navbar-brand">
+        <img src="https://i.pinimg.com/originals/dd/64/da/dd64da585bc57cb05e5fd4d8ce873f57.png" class="rounded-circle" alt="Logo" style="width:50px;">
+      </a>
       <li class="nav-item" *ngIf = "getRole()=='customer'">
-        <a class="nav-link" routerLink="list-customer-books">List Books</a>
+        <a class="nav-link" routerLink="list-customer-books"><h5 style=color:aliceblue>
+          List Books</h5></a>
       </li>
       <li class="nav-item" *ngIf = "getRole()=='admin'">
         <a class="nav-link" routerLink="list-admin-books">Manage Books</a>
       </li>
       <li class="nav-item" *ngIf = "getRole()=='customer'">
-        <a class="nav-link" routerLink="list-customer-order">View Orders</a>
+        <a class="nav-link" routerLink="list-customer-order"><h5 style=color:aliceblue>
+          View Orders</h5></a>
       </li>
       <li class="nav-item" *ngIf = "getRole()=='admin'">
         <a class="nav-link" routerLink="list-admin-order"> View All Orders</a>
       </li>
       <li class="nav-item" *ngIf = "getUser()==null ">
-        <a class="nav-link" routerLink="login">Login</a>
+        <a class="nav-link" routerLink="login"><h4 style=color:aliceblue>Login</h4></a>
       </li> 
       <li class="nav-item" *ngIf = "getUser()==null">
-        <a class="nav-link" routerLink="registry">Register</a>
+        <a class="nav-link" routerLink="registry"><h4 style=color:aliceblue>Register</h4></a>
       </li>
+      
     </ul>
 
-      <ul class="navbar-nav ml-auto">
+
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item" *ngIf = "getRole()=='customer'">
+        <a class="nav-link" routerLink="cart"><h5 style=color:aliceblue><i class="fa fa-shopping-cart" style="font-size:30px;color:white"></i>
+          Cart</h5></a>
+      </li>
       <li class="nav-item" *ngIf = "getRole()=='customer'">
       <form class="form-inline" (ngSubmit)= "search()">
         <input class="form-control mr-sm-2" type="search" placeholder="Search">
@@ -28,7 +40,9 @@
         </form>
       </li>
        <li class="nav-item" *ngIf = "getUser()!=null ">
-        <a class="nav-link" routerLink="logout">Logout</a>
+        <a class="nav-link" routerLink="logout"><h5 style=color:red>
+          Logout</h5></a>
       </li> 
     </ul>
   </nav>
+</div>

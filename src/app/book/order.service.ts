@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 import { review } from './books/review/review';
+import { Customer } from './customer/customer';
 import { order } from './order/order';
 
 @Injectable({
@@ -36,6 +37,14 @@ return httpOptions;
   }
   viewOrder(orderId :any): Observable<order>{
     return this.http.get<order>('http://localhost:8097/order/orderId/'+orderId,this.getHttpOptions());
+  }
+  getCustomerByUserName(userName: any):Observable<Customer>{
+    return this.http.get<Customer>('http://localhost:8097/api/v5/customer/'+userName,this.getHttpOptions());
+  }
+  addOrder(order:any):Observable<order>{
+    console.log('in service');
+    console.log(order);
+    return this.http.post<order>('http://localhost:8097/order/add',order,this.getHttpOptions());
   }
   
 }

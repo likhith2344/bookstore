@@ -25,7 +25,8 @@ reviewData={
   comment : '',
   rating : '',
   reviewOn : '',
-  book : ''
+  book : '',
+  customer:''
 }
 
 reviewsData: review[] = [];

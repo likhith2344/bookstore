@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CartServiceService } from '../../cart/cart-service.service';
 
 import { book } from '../bookint';
 import { ListCustomerBooksService } from '../list-customer-books.service';
@@ -25,8 +26,9 @@ export class ListCustomerBooksComponent implements OnInit {
   //productService: ProductService;
 
   myError = '';
-  constructor(private customerBookService:ListCustomerBooksService, private router: Router) {
-    this.router.navigate(['list-customer-books']);
+  constructor(private customerBookService:ListCustomerBooksService, private router: Router,
+              private cartService: CartServiceService) {
+    // this.router.navigate(['list-customer-books']);
    }
 
   ngOnInit(): void {
@@ -48,5 +50,10 @@ view(title:any){
     this.router.navigate(['view-customer-book',title]);
   })
 
+}
+addToCart(bookData: book) {
+  this.cartService.addToCart(bookData);
+  //console.log("cart"+this.cartService.addToCart(bookData));
+  window.alert('Your book has been added to the cart!');
 }
 }

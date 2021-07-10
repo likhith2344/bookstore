@@ -4,6 +4,7 @@ import { ListAdminBooksComponent } from './book/books/list-admin-books/list-admi
 import { ListCustomerBooksComponent } from './book/books/list-customer-books/list-customer-books.component';
 import { ReviewComponent } from './book/books/review/review.component';
 import { ViewCustomerBookComponent } from './book/books/view-customer-book/view-customer-book.component';
+import { CartComponent } from './book/cart/cart.component';
 
 import { CustomerComponent } from './book/customer/customer.component';
 import { AddOrderComponent } from './book/order/add-order/add-order.component';
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'add-order',
     component : AddOrderComponent
+  },
+  {
+    path: 'cart',
+    component : CartComponent
   },
   {
     path: 'view-customer-book/:title',

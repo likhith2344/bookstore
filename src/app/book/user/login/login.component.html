@@ -1,4 +1,74 @@
-<div class="container">
+<div class="container-fluid">
+  
+  <div class="d-flex justify-content-around">
+      <form  (ngSubmit)="login()">
+        
+        <div class="content mt-5">
+      <div class="card-header" style="background-color: thistle;">
+          <h2 class="text-center">Login</h2>
+      </div>
+      <div class="card-body" style="width:400px">
+          <div class="form-group">
+            <i class='fas fa-user-alt' style='font-size:30px'></i>
+              <label for="userName" style="font-family:cursive;">User Name:*</label>
+              <input 
+                  type="text" 
+                  class="form-control mx-2" 
+                  placeholder="Enter user name" 
+                  id="userName"
+                  name="userName" 
+                  [(ngModel)]="addUserData.username">
+          </div>
+         
+          <div class="form-group">
+            <i class='fas fa-key' style='font-size:30px'></i>
+              <label for="password" style="font-family:cursive;">Password:</label>
+              <input 
+                  type="password" 
+                  class="form-control mx-2" 
+                  placeholder="Enter password" 
+                  id="password"
+                  name="password"
+                   [(ngModel)]="addUserData.password"> 
+          </div>
+          <p style="font-family:cursive;">Role :</p>
+          <div class="form-check-inline">
+              <label class="form-check-label" style="font-family:cursive; color:darkred;">
+                <input type="radio" 
+                class="form-check-input" 
+                name="optradio" 
+                value ="admin"
+                [(ngModel)]="addUserData.role">Admin
+              </label>
+            </div>
+            <div class="form-check-inline">
+              <label class="form-check-label" style="font-family:cursive;color:darkred;">
+                <input 
+                  type="radio" 
+                   class="form-check-input" 
+                   name="optradio" 
+                   value = "customer"
+                   [(ngModel)]="addUserData.role">Customer
+              </label>
+            </div>
+          
+      </div>    
+      
+      <div class="card-footer" style="background-color:gainsboro">
+          <button 
+              type="submit" 
+              class="btn btn-primary">Login</button>
+      </div>
+    </div>
+  
+      </form>
+
+  </div>
+  </div>
+  
+
+
+<!-- <div class="container">
     <div class="card mt-4">
         <form  (ngSubmit)="login()"> 
         <div class="card-header bg-primary text-white display-4">
@@ -57,4 +127,4 @@
         </form>
     </div>
     </div>
-    
+     -->

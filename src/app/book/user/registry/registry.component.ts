@@ -21,6 +21,7 @@ export class RegistryComponent implements OnInit {
         username : ''
     },
   addressPojo:  {
+    addressId:0,
         address : '',
         city : '',
         pincode: 0,

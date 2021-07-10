@@ -10,6 +10,6 @@ export interface book {
     publishhDate : any,
     lastUpdatedOn : any,
     categories : categories,
-    review : review,
+    review : review[],
     image : string
 }

@@ -35,6 +35,8 @@ import { ViewCustomerBookComponent } from './book/books/view-customer-book/view-
 import { ReviewComponent } from './book/books/review/review.component';
 import { ViewCustomerOrderComponent } from './book/order/view-customer-order/view-customer-order.component';
 import { AddOrderComponent } from './book/order/add-order/add-order.component';
+import { AddReviewComponent } from './book/books/review/add-review/add-review.component';
+import { CartComponent } from './book/cart/cart.component';
 
 
 
@@ -62,7 +64,9 @@ import { AddOrderComponent } from './book/order/add-order/add-order.component';
     ViewCustomerBookComponent,
     ReviewComponent,
     ViewCustomerOrderComponent,
-    AddOrderComponent
+    AddOrderComponent,
+    AddReviewComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

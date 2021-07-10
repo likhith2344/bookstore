@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthService } from '../auth.service';
+import { order } from '../order/order';
 import { book } from './bookint';
 import { review } from './review/review';
 
@@ -40,9 +41,17 @@ export class ViewCustomerBookService {
         return this.httpClient.post<review> ('http://localhost:8097/api/v6/review/add',reviewData);
     
       }
+      reviewByUserName(userName:any):Observable<review>{
+        return this.httpClient.get<review>('http://localhost:8097/api/v6/reviews/'+userName, this.getHttpOptions());
+      }
       seeAll(title: any):Observable<review[]>{
         return this.httpClient.get<review[]>('http://localhost:8097/api/v6/review/'+title,this.getHttpOptions());
       }
+      getFindBookById(bookId: number):Observable<book>{
+        return this.httpClient.get<book>('http://localhost:8097/api/v8/book/'+bookId,this.getHttpOptions());
+      }
+      
+     
       }
 
     
