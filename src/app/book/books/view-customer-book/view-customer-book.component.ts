@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+
 import { CartServiceService } from '../../cart/cart-service.service';
 
 import { LoginService } from '../../login.service';
@@ -126,23 +127,28 @@ reviewsData: review[] =[];
       // this.BookData.setValue(response);
       console.log("after response"+title);
      this.BookData= response;
-     this.reviewData.book=response;
+     let titles : any = this.activatedRoute.snapshot.paramMap.get('title')
+     console.log(title);
+     this.viewCustomerService.seeAll(titles).subscribe((response)=>{
+       console.log(response);
+       this.reviewsData=response;
+    //  this.reviewData.book=response;
      
-     console.log(this.BookData);
-     console.log(this.reviewData.book.author);
+    //  console.log(this.BookData);
+    //  console.log(this.reviewData.book.author);
 
-     let userName : any =this.activatedRoute.snapshot.paramMap.get('userName')
-    console.log('from param '+userName);
-    this.orderService.getCustomerByUserName(this.loginService.newuser.username).subscribe((response) => {
-    this.reviewData.customer=response;
-    console.log(this.reviewData);
-    this.viewCustomerService.addReview(this.reviewData).subscribe((response)=>{
-      this.reviewData=response;
-      console.log(this.reviewData);
-    });
+    //  let userName : any =this.activatedRoute.snapshot.paramMap.get('userName')
+    // console.log('from param '+userName);
+    // this.orderService.getCustomerByUserName(this.loginService.newuser.username).subscribe((response) => {
+    // this.reviewData.customer=response;
+    // console.log(this.reviewData);
+    // this.viewCustomerService.addReview(this.reviewData).subscribe((response)=>{
+    //   this.reviewData=response;
+    //   console.log(this.reviewData);
+    // });
 
     
-    });
+     });
   });
 
   //  this.viewCustomerService.getBook(this.BookData.title).subscribe((response)=>{
@@ -171,11 +177,19 @@ reviewsData: review[] =[];
     this.cartService.addToCart(book);
     this.router.navigate(['cart']);
   }
-  addReview(review :any){
-    this.router.navigate(['view-customer-book']);
+  addReviews(title:any){
+    this.router.navigate(['add-review',title]);
   }
   seeAll(title:any){
-     this.router.navigate(['review',title]);
+    let titles : any = this.activatedRoute.snapshot.paramMap.get('title')
+    console.log(title);
+    this.viewCustomerService.seeAll(titles).subscribe((response)=>{
+      console.log(response);
+      this.reviewsData=response;
+      console.log(this.reviewsData);
+    })
+  
+     this.router.navigate(['view-customer-book',title]);
   }
   addToCart(book:any){
     this.cartService.addToCart(book);

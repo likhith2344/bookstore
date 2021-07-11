@@ -10,7 +10,7 @@
     </form>
   </div>
 </div> -->
-
+<!-- ----------------------------------- -->
 <div class= "container mt-4" style="background-color: white;" *ngFor =" let order of allOrders">
   
   <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
@@ -20,8 +20,10 @@
        
                   <div class="col">
                       <h5 style="color: cornflowerblue;"> Address:</h5> 
-                          <p>Flat no.420,Java World,Python street, Mumbai 400000.
+                    
+                          <p>{{order.customerPojo.addressPojo.address}}
                           </p>
+                       
                   
                     </div>
                     <div class="col">
@@ -41,4 +43,38 @@
               <button class="btn btn-danger" (click)= 'viewOrder(order.orderId)'>View Order Details</button>
           </div>
 
-
+  <!-- -------------------------------------------------- -->
+  <!-- <div class= "container mt-4" *ngFor =" let order of allOrders">
+    <div class="d-flex justify-content-between">
+     
+      <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
+        Order ID: {{order.orderId}}</h3>
+    <div class= "container mt-4">
+        <div class="d-flex justify-content-between">
+         
+                    <div class="col">
+                        <h5 style="color: cornflowerblue;"> Address:</h5> 
+                      
+                            <p>{{order.customerPojo.addressPojo.address}}
+                            </p>
+                         
+                    
+                      </div>
+                      <div class="col">
+                        <h5 style="color: cornflowerblue;">Quantity: </h5>
+                        <p>{{order.quantity}}
+                        </p>
+                        
+                      </div>
+                      <div class="col">
+                        <h5 style="color: cornflowerblue;">Total Cost: </h5>
+                            <p>{{order.orderTotal}}
+                            </p>
+                            
+                      </div>
+                      <small>Date: 08-07-2020</small>
+                </div>
+                <button class="btn btn-danger" (click)= 'viewOrder(order.orderId)'>View Order Details</button>
+            </div>
+        </div>
+      </div> -->

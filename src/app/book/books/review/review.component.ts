@@ -39,13 +39,6 @@ reviewsData: review[] = [];
               }
 
   ngOnInit(): void {
-    let title : any = this.activatedRoute.snapshot.paramMap.get('title')
-    console.log(title);
-    this.viewCustomerService.seeAll(title).subscribe((response)=>{
-      console.log(response);
-      this.reviewsData=response;
-      console.log(this.reviewsData);
-    })
   }
   submit(){
     

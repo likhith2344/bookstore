@@ -15,7 +15,6 @@ import { order } from '../order';
 })
 export class AddOrderComponent implements OnInit {
 
-
   allOrder: order={
     orderId :0,
     quantity:0,
@@ -44,7 +43,6 @@ export class AddOrderComponent implements OnInit {
   },
   bookpojo:[] 
     }
-  
   // bookData={
   //   bookId:0,
   //   title : '',

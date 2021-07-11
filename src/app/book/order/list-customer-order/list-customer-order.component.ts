@@ -26,7 +26,14 @@ export class ListCustomerOrderComponent implements OnInit {
       customerId :'',
       mobileNumber : 0,
       fullName : '',
-      registerOn : ''
+      registerOn : '',
+      addressPojo :{
+        addressId : 0,
+        address: '',
+        city :'',
+        country : '',
+        pincode : 0
+      }
       
     }
   

@@ -46,16 +46,8 @@ export class CartComponent implements OnInit {
   }
     
   clearCart(bookId:number) {
-    console.log(bookId);
+   this.items= this.cartService.clearCart(bookId);
     
-   const a=  this.items.findIndex(b => b.bookId==bookId);
-if(a!=-1){
-  this.items.splice(a,1)
-  return this.cartService.getItems();
-}
-else{
-return this.cartService.getItems();
-    }
   }
   
   placeOrder(){

@@ -36,7 +36,7 @@ export class ListAllBooksComponent implements OnInit {
     this.booksService.deleteBook1(bkId).subscribe((response)=>{   // changed to deletebook1
       console.log(response);
       // this.ngOnInit();        //c
-      this.allBooks = response;   //added
+     this.allBooks = response;   //added
      // this.ngOnInit();        //c
      // this.router.navigate(['list-all-books']);
     });

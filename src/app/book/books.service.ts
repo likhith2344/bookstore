@@ -29,12 +29,12 @@ export class BooksService {
   }
 
   // deleteBook(bookId: number) :Observable<Boolean>{
-  //   return this.http.delete<Boolean>("http://localhost:9001/api/v8/books/" + bookId);
+  //   return this.http.delete<Boolean>("http://localhost:8097/api/v8/books/" + bookId);
   // }
 
   deleteBook1(bookId: number) :Observable<book[]>{
     console.log("http:" + JSON.stringify( this.http.delete<book[]>("http://localhost:9001/api/v8/books1/" + bookId)));
-    return this.http.delete<book[]>("http://localhost:9001/api/v8/books1/" + bookId);
+    return this.http.delete<book[]>("http://localhost:8097/api/v8/books1/" + bookId);
   }
 
   addBook(newBook : book) :Observable<book>{

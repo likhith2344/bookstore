@@ -48,8 +48,8 @@ return httpOptions;
   }
   getAllOrderss(): Observable<order[]> {
     console.log("in orderservice");
-    console.log("in con:" + JSON.stringify(this.http.get<any>("http://localhost:9001/order/get")));
-    return this.http.get<order[]>("http://localhost:9001/order/get");
+  //  console.log("in con:" + JSON.stringify(this.http.get<any>("http://localhost:9001/order/get")));
+    return this.http.get<order[]>("http://localhost:8097/order/get/admin");
   }
   
 }

@@ -8,6 +8,7 @@ import { ListAdminBooksComponent } from './book/books/list-admin-books/list-admi
 import { ManageBooksComponent } from './book/books/list-admin-books/manage-books/manage-books.component';
 import { ListAllBooksComponent } from './book/books/list-all-books/list-all-books.component';
 import { ListCustomerBooksComponent } from './book/books/list-customer-books/list-customer-books.component';
+import { AddReviewComponent } from './book/books/review/add-review/add-review.component';
 import { ReviewComponent } from './book/books/review/review.component';
 import { ViewCustomerBookComponent } from './book/books/view-customer-book/view-customer-book.component';
 import { CartComponent } from './book/cart/cart.component';
@@ -132,7 +133,11 @@ const routes: Routes = [
   {
     path:'list-all-books',
     component: ListAllBooksComponent
-  }
+  },
+  {
+    path: 'add-review/:title',
+    component: AddReviewComponent
+  },
 
 
 

@@ -1,4 +1,113 @@
 <div class="container">
+    <div class="card mx-auto col-md-8">
+    
+            <div class="card-header text-white display-4" style="text-align: center;font-family:cursive">
+                <h3> </h3>
+            </div>
+            <p>
+                <img class="card-img-top" [src]="BookData.image">
+            </p>
+            <div class="card-body text-left">
+                <div class="form-group">
+                    
+
+
+                </div>
+
+                <div class="form-group">
+                    <label for="productId" style="font-family: cursive;"><b>
+                        Title: {{BookData.title}}</b></label>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="productName"style="font-family: cursive;">
+                        Author: {{BookData.author}}</label>
+
+                </div>
+                <div class="d-flex justify-content-between">
+                <div class="form-group">
+                    <label for="productCost"style="font-family: cursive;">
+                        Descirption: {{BookData.description}}</label>
+
+                </div>
+                <div class="form-group">
+                    <label for="productCost"style="font-family: cursive;"><b>
+                        Price: {{BookData.price}}</b></label>
+
+                </div></div>
+                <div *ngIf="BookData">
+
+                </div>
+
+
+            </div>
+            <div class="card-footer">
+                <div class="d-flex justify-content-between  mb-3">
+                    <!-- <button type="button" class="btn btn-outline  btn-iconed btn-rounded "
+                        style="background-color: yellowgreen;">
+                        <i class="fa fa-chevron-left"></i> <span class="spn">
+                            Back </span></button> -->
+                            <button href="#" class="btn mr-2" (click) = 'back()'><i class="fa fa-chevron-left"></i>
+                                Back</button>
+                            <button href="#" class="btn">
+                                Add to Cart</button>
+                    <!-- <button type="button" class="btn btn-outline  btn-iconed btn-rounded"
+                        style="background-color: yellow;" (click)="addToCart(BookData)">
+                        <i class="fa fa-chevron-center"></i> <span class="spn">
+                            Add To Cart </span></button> -->
+                            <button href="#" class="btn">
+                            Buy Now</button>
+                    <!-- <button type="button" class="btn btn-outline  btn-iconed btn-rounded"
+                        style="background-color: yellow;" (click)="buyNow(BookData)">
+                        <i class="fa fa-chevron-right"></i> <span class="spn">
+                            Buy Now </span></button> -->
+                </div>
+            </div>
+            </div>
+        
+    </div>
+
+    <div class="container pt-1">
+        <div class="card mx-auto col-md-8">
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active"  style="background-color:rgba(59, 59, 59, 0.527); color:white;">
+                <div class="d-flex w-100 justify-content-between">
+                  <h2 class="mb-1" style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                      People's Reviews</h2>
+                </div>
+              </a>
+            <a  href="#" class="list-group-item list-group-item-action flex-column align-items-start scroll">
+                <form *ngFor= "let review of reviewsData">
+                <p>Book Titile:{{BookData.title}}<br>
+                    Rating:{{review.rating}}/5<br>
+                    Customer Name:{{review.customer.fullName}}<br>
+                Headline:{{review.headLine}}<br>
+           Customer Comment: {{review.comment}}<br>
+        </p>
+        </form>
+              </a>
+             
+                    <button href="#" class="btn" type="submit" 
+                    (click)='addReviews(BookData.title)'>
+                        Add Review
+                    </button>
+                    <button href="#" class="btn" type="submit" 
+                    (click)='seeAll(BookData.title)'>
+                        View All Reviews
+                    </button>
+                    
+                <!-- </div> -->
+          
+        </div>
+    </div>
+
+
+
+<!-- ---------------------------Main------------------------ -->
+
+
+
+<!-- <div class="container">
     <div class="card mx-auto col-md-8 mt-5">
        
 
@@ -115,6 +224,6 @@
                     </button>
                     
                 </div>
-            </div>-->
+            </div>
         </div>
-    </div> 
+    </div>  -->

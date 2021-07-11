@@ -1,97 +1,54 @@
 <div class= "container">
-    <div class = "card mt-4">
-        <form [formGroup]="addCategoryForm" (ngSubmit)="addCategory()">
-        <div class ="card-header bg-primary text-white display-4">  Add Category </div>
-        <div class ="card-body "> 
-            <div class="form-group">
-                <label for="categoryName">Category Name : </label>
-                <input 
-                    type="text" 
-                    class="form-control mx-2" 
-                    placeholder="Enter Category name" 
-                    id="categoryName"
-                    formControlName = "categoryName">
-            </div>
-            <div class="form-group">
-                <label for="categoryImageUrl">Category Image URL: </label>
-                <input 
-                    type="text" 
-                    class="form-control mx-2" 
-                    placeholder="Enter Image Url" 
-                    id="categoryImageUrl"
-                    formControlName = "categoryImageUrl">
-            </div>
-            
-        </div>
-        <div class ="card-footer"> 
-          <button type="submit" 
-                  class="btn btn-success" >submit </button>
-          <button type="submit" 
-                  class="btn btn-primary float-right" (click)="back()"> back </button>
-      </div>
-        </form>
-    </div>
-    </div>
-  
-    
-  
-  
-   
-  
-  
-  
-   <!-- ------------------------Add Product------------------------------ -->
-  <!-- 
-  <div class="container d-flex justify-content-center">
-      <div class="d-flex flex-column justify-content-between">
-        
-          <div class="card mt-3 p-5">
-              <div class="logo mb-3"><img src="http://surl.li/zglw" style="width: 15%;"></div>
-              <div>
-                  <p class="mb-1">Start adding</p>
-                  <h2 class="mb-5 text-white">Categories!</h2>
-              </div>
+  <div class = "card mt-4">
+      <form [formGroup]="addCategoryForm" (ngSubmit)="addCategory()">
+      <div class ="card-header bg-primary text-white display-4">  Add Category </div>
+      <div class ="card-body "> 
+          <div class="form-group">
+              <label for="categoryName">Category Name : </label>
+              <input 
+                  type="text" 
+                  class="form-control mx-2" 
+                  placeholder="Enter Category name" 
+                  id="categoryName"
+                  formControlName = "categoryName">
+                  <span *ngIf ="addCategoryForm.get('categoryName')?.touched &&  addCategoryForm.get('categoryName')?.errors?.required"
+                  class = "text-danger small">
+                   Category name is mandatory
+               </span>
+               <span *ngIf ="addCategoryForm.get('categoryName')?.touched &&  addCategoryForm.get('categoryName')?.errors?.minlength"
+               class = "text-danger small">
+               category name should be minimum of 3 characters
+            </span>
           </div>
-          <form [formGroup]="addCategoryForm" (ngSubmit)="addCategory()">
-          <!-- <form> -->
-         <!-- <div class="card two bg-white px-5 py-4 mb-3" style="height: 140%;">
-    
-              <div class="form-group">
-                <input 
-                type="categoryName" 
-                class="form-control" id="categoryName" required>
-                <label 
-                class="form-control-placeholder" 
-                for="categoryName">
-                Category Name
-              </label>
-              </div>
-    
-              <div class="form-group">
-                <input 
-                type="imageUrl" 
-                class="form-control" id="imageUrl" required>
-                <label 
-                class="form-control-placeholder" 
-                for="name">
-                Category Image URL
-              </label>
-              </div>
-    
-              <button type="submit" 
-                  class="btn btn-success" >submit </button>
-          <button type="submit" 
-                  class="btn btn-primary float-right" (click)="back()"> back </button>
-              <button 
-              class="btn btn-primary btn-block btn-lg mt-1 mb-2">
-              <span>
-                Add Category
-                <i class="fas fa-long-arrow-alt-right ml-2">
-                </i></span></button>
-        </div> 
-      </form>
+          <div class="form-group">
+              <label for="categoryImageUrl">Category Image URL: </label>
+              <input 
+                  type="text" 
+                  class="form-control mx-2" 
+                  placeholder="Enter Image Url" 
+                  id="categoryImageUrl"
+                  formControlName = "categoryImageUrl">
+                  <span *ngIf ="addCategoryForm.get('categoryImageUrl')?.touched &&  addCategoryForm.get('categoryImageUrl')?.errors?.required"
+                  class = "text-danger small">
+                   Please Enter Image Url 
+               </span>
+          </div>
+          
       </div>
-      
+      <div class ="card-footer"> 
+        <button type="submit" 
+                class="btn btn-success" 
+                [disabled]="addCategoryForm.invalid">submit </button>
+        <button type="submit" 
+                class="btn btn-primary float-right" (click)="back()"> back </button>
     </div>
-     -->
+      </form>
+  </div>
+  </div>
+
   
+
+
+ 
+
+

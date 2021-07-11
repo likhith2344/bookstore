@@ -10,7 +10,8 @@ export interface order{
     orderTotal: number,
     status: string,
     paymentMethod: string,
-    customerPojo: Customer,    
+    customerPojo: Customer,  
+   // userPojo :User  
     bookpojo: book[],
     orderDate: Date,
     deleted:number

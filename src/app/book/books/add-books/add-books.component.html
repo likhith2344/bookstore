@@ -5,7 +5,7 @@
         <div class ="card-header bg-primary text-white display-4"> Add Book to Store</div>
         <div class ="card-body "> 
             <div class="form-group">
-                <label for="bookName">Book Name : </label>
+                <label for="bookName">Book Name : * </label>
                 <input 
                     type="text" 
                     class="form-control mx-2" 
@@ -13,23 +13,37 @@
                     id="bookName"
                     name="bookName"
                     required
-                    [(ngModel)]="addBookData.title">
-                   <!-- <span *ngIf="myProdName.touched && myProdName.errors?.required" class="text-danger small" >
-                        Product Name is mandatory!
+                    minlength='3'
+                    maxlength='20'
+                    #myBookName="ngModel"
+                    [(ngModel)]="addBookData.title">       
+                   <span *ngIf="myBookName.touched && myBookName.errors?.required" class="text-danger small" >
+                        Book Name is mandatory!
                     </span>
-                    <span *ngIf="myProdName.touched && myProdName.errors?.minlength" class="text-danger small" >
-                        Product Name should be min of 3 characters!
-                    </span> -->
+                    <span *ngIf="myBookName.touched && myBookName.errors?.minlength" class="text-danger small" >
+                        Book Name should be min of 3 characters!
+                    </span>
             </div>
             <div class="form-group">
-                <label for="author">Author Name : </label>
+                <label for="author">Author Name : *</label>
                 <input 
                     type="type" 
                     class="form-control mx-2" 
                     placeholder="Enter Author Name"
                     id="author"
                     name="author"
+                    required
+                    minlength='3'
+                    maxlength='20'
+                    #myAuthorName="ngModel"
                     [(ngModel)]="addBookData.author">
+                    <span *ngIf="myAuthorName.touched && myAuthorName.errors?.required" class="text-danger small" >
+                        Author Name is mandatory!
+                    </span>
+                    <span *ngIf="myAuthorName.touched && myAuthorName.errors?.minlength" class="text-danger small" >
+                        Author Name should be min of 2 characters!
+                    </span>
+
             </div>
             <div class="form-group">
                 <label for="description">Description : </label>
@@ -40,6 +54,7 @@
                     id="description"
                     name="description"
                     [(ngModel)]="addBookData.description">
+                   
             </div>
             <div class="form-group">
                 <label for="price">Book price:</label>
@@ -49,7 +64,12 @@
                     placeholder="Enter book price" 
                     id="price"
                     name="price"
+                    required
+                    #myBookPrice="ngModel"
                     [(ngModel)]="addBookData.price"> 
+                    <span *ngIf="myBookPrice.touched && myBookPrice.errors?.required" class="text-danger small" >
+                       Price is mandatory!
+                    </span>
             </div>
             <div class="form-group">
                 <label for="publishDate">publishDate:</label>
@@ -70,7 +90,7 @@
                     [(ngModel)]="addBookData.lastUpdatedOn"> 
             </div>
             <div class="form-group">
-                <label for="bookImageUrl">Book Image URL:</label>
+                <label for="image">Book Image URL:</label>
                 <input 
                     type="type" 
                     class="form-control mx-2" 
@@ -92,20 +112,3 @@
         </form>
     </div>
     </div>
-    <!-- {{ myForm.value | json }}
-    <br>
-    product Name invalid :{{myProdName.invalid}}
-    <br>
-    product Name valid :{{myProdName.valid}}
-    <br>
-    product Name status :{{myProdName.status}}
-    <br>
-    product Name touched :{{myProdName.touched}}
-    <br>
-    product Name dirty :{{myProdName.dirty}}
-    <br>
-    product Name errors required :{{myProdName.errors?.required}}
-    <br>
-    product Name errors minlength :{{myProdName.errors?.minlength}}
-    <br>
-     -->
