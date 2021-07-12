@@ -1,151 +1,65 @@
-<!-- <div class="container">
-    <div class="card mt-4">
-        <form (ngSubmit)="editCustomer()">
-            <div class="card-header bg-success text-white display-4">
-                Edit Customer Form
-            </div>
-            <div class="card-body">
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="firstName">First Name:</label>
-                        <input type="text" class="form-control mx-2" id="firstName" name="firstName"
-                            [(ngModel)]=customer.fullName>
-                   
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="mobileNumber">Mobile Number:</label>
-                        <input type="text" class="form-control mx-2" id="mobileNumber" name="mobileNumber"
-                            [(ngModel)]=customer.mobileNumber>
-                    </div>
-                 
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-4">
-                        <label for="streetNo">Street Number:</label>
-                        <input type="text" class="form-control mx-2" id="streetNo" name="streetNo"
-                            [(ngModel)]=customer.addressPojo.address>
-                    </div>
-
-                    
-                    <div class="form-group col-md-4">
-                        <label for="city">City:</label>
-                        <input type="text" class="form-control mx-2" id="city" name="city"
-                            [(ngModel)]=customer.addressPojo.city>
-                    </div>
-                </div>
-
-               
-                    <div class="form-group col-md-4">
-                        <label for="country">Country:</label>
-                        <input type="text" class="form-control mx-2" id="country" name="country"
-                            [(ngModel)]=customer.addressPojo.country>
-                    </div>
-
-                    <div class="form-group col-md-4">
-                        <label for="pincode">Pincode:</label>
-                        <input type="number" class="form-control mx-2" id="pincode" name="pincode"
-                            [(ngModel)]=customer.addressPojo.pincode>
-                    </div>
-                </div>
-            </div>
-            <div class="card-footer">
-                <button type="submit" class="btn btn-success">Edit Customer</button>
-            </div>
-        </form>
-    </div>
-</div> -->
-
-<!-- ---------------------------------------------->
 <div class="container">
     <div class="content mt-1" style="background:whitesmoke">
-        <form (ngSubmit)="editCustomer()"> 
-        <div class="card-header" style="background:thistle">
-            <h1 class="text-center">Update Profile</h1>
-        </div>
-        <div class="card-body">
-            <div class="form-group">
-                <i class='fas fa-address-card' style='font-size:20px'></i>
-                <label for="fullName" style="font-family:cursive" >Full Name:*</label>
-                <input 
-                    type="text" 
-                    class="form-control mx-2" 
-                    placeholder="Enter Full name" 
-                    id="fullName"
-                    name="fullName" 
-                    [(ngModel)]=customer.fullName> 
+        <form (ngSubmit)="editCustomer()">
+            <div class="card-header" style="background:thistle">
+                <h1 class="text-center">Update Profile</h1>
             </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <i class='fas fa-address-card' style='font-size:20px'></i>
+                    <label for="fullName" style="font-family:cursive">Full Name:*</label>
+                    <input type="text" class="form-control mx-2" placeholder="Enter Full name" id="fullName"
+                        name="fullName" [(ngModel)]=customer.fullName>
+                </div>
 
             </div>
             <div class="form-group row-cols-1">
                 <div class="col-lg-2">
-                <i class='fas fa-mobile' style='font-size:20px'></i>
-                <label for="MobileNO:"style="font-family:cursive">Mobile Number:*</label>
-                <input 
-                    type="text" 
-                    class="form-control mx-2" 
-                    placeholder="Mobile number" 
-                    id="MobileNO"
-                    name="MobileNO" 
-                    [(ngModel)]=customer.mobileNumber> 
-            </div></div>
+                    <i class='fas fa-mobile' style='font-size:20px'></i>
+                    <label for="MobileNO:" style="font-family:cursive">Mobile Number:*</label>
+                    <input type="text" class="form-control mx-2" placeholder="Mobile number" id="MobileNO"
+                        name="MobileNO" [(ngModel)]=customer.mobileNumber>
+                </div>
+            </div>
 
             <div class="form-group row-cols-1">
                 <div class="col-12">
-                <i class='fas fa-map-marker-alt' style='font-size:20px'></i>
-                <label for="streetNo"style="font-family:cursive">Street Number:*</label>
-                <input 
-                    type="text"
-                    class="form-control mx-2" 
-                    placeholder="Enter username" 
-                    id="address"
-                    name="address" 
-                    [(ngModel)]=customer.addressPojo.address> 
-            </div></div>
+                    <i class='fas fa-map-marker-alt' style='font-size:20px'></i>
+                    <label for="streetNo" style="font-family:cursive">Street Number:*</label>
+                    <input type="text" class="form-control mx-2" placeholder="Enter username" id="address"
+                        name="address" [(ngModel)]=customer.addressPojo.address>
+                </div>
+            </div>
 
             <div class="row mx-auto">
-            <div class="col-sm-3 form-group">
-                <i class='fas fa-city' style='font-size:18px'></i>
-                <label for="city"style="font-family:cursive">City:</label>
-                <input 
-                    type="text" 
-                    class="form-control mx-2" 
-                    placeholder="Enter cityname" 
-                    id="city"
-                    name="city" 
-                    [(ngModel)]=customer.addressPojo.city> 
-            </div>
-            
-            <div class="col-sm-4 form-group">
-                <i class='fas fa-globe' style='font-size:20px'></i>
-                <label for="country"style="font-family:cursive">Country:*</label>
-                <input 
-                    type="text" 
-                    class="form-control mx-2" 
-                    placeholder="Enter countryname" 
-                    id="countryname"
-                    name="countryname" 
-                    [(ngModel)]=customer.addressPojo.country> 
-            </div>
+                <div class="col-sm-3 form-group">
+                    <i class='fas fa-city' style='font-size:18px'></i>
+                    <label for="city" style="font-family:cursive">City:</label>
+                    <input type="text" class="form-control mx-2" placeholder="Enter cityname" id="city" name="city"
+                        [(ngModel)]=customer.addressPojo.city>
+                </div>
 
-            <div class="col-sm-4 form-group">
-                <i class='fas fa-map-marker' style='font-size:20px'></i>
-                <label for="pincode"style="font-family:cursive">Pincode:*</label>
-                <input 
-                    type="text" 
-                    class="form-control mx-2" 
-                    placeholder="Enter pincode" 
-                    id="pincode"
-                    name="pincode" 
-                    [(ngModel)]=customer.addressPojo.pincode> 
-            </div>    
-        </div>
-        <div class="card-footer my-3" style="background:wheat">
-            <button 
-                type="submit" 
-                class="btn btn-primary">Update Profile</button>
-        </div>
+                <div class="col-sm-4 form-group">
+                    <i class='fas fa-globe' style='font-size:20px'></i>
+                    <label for="country" style="font-family:cursive">Country:*</label>
+                    <input type="text" class="form-control mx-2" placeholder="Enter countryname" id="countryname"
+                        name="countryname" [(ngModel)]=customer.addressPojo.country>
+                </div>
+
+                <div class="col-sm-4 form-group">
+                    <i class='fas fa-map-marker' style='font-size:20px'></i>
+                    <label for="pincode" style="font-family:cursive">Pincode:*</label>
+                    <input type="text" class="form-control mx-2" placeholder="Enter pincode" id="pincode" name="pincode"
+                        [(ngModel)]=customer.addressPojo.pincode>
+                </div>
+            </div>
+            <div class="card-footer my-3" style="background:wheat">
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-success">Update Profile</button>
+                    <button type="button" (click)="back()" class="btn btn-primary">Back</button>
+                </div>
+            </div>
         </form>
-        
+
     </div>
-    </div>
+</div>

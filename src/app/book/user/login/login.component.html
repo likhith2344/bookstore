@@ -1,130 +1,70 @@
 <div class="container-fluid">
-  
+
   <div class="d-flex justify-content-around">
-      <form  (ngSubmit)="login()">
-        
-        <div class="content mt-5">
-      <div class="card-header" style="background-color: thistle;">
+    <form  #myForm = "ngForm" (ngSubmit)="login()">
+
+      <div class="content mt-5">
+        <div class="card-header" style="background-color: thistle;">
           <h2 class="text-center">Login</h2>
-      </div>
-      <div class="card-body" style="width:400px">
+        </div>
+        <div class="card-body" style="width:400px">
           <div class="form-group">
             <i class='fas fa-user-alt' style='font-size:30px'></i>
-              <label for="userName" style="font-family:cursive;">User Name:*</label>
-              <input 
-                  type="text" 
-                  class="form-control mx-2" 
-                  placeholder="Enter user name" 
-                  id="userName"
-                  name="userName" 
-                  [(ngModel)]="addUserData.username">
-          </div>
+            <label for="username" style="font-family:cursive;">User Name:*</label>
+            <input type="text" class="form-control mx-2" placeholder="Enter user name" id="userName" name="userName" required
+            minlength='3'
+            maxlength='20'
+            #myUserName="ngModel"   
+            [(ngModel)]="addUserData.username">
+            <span *ngIf="myUserName.touched && myUserName.errors?.required" class="text-danger small" >
+              User Name is mandatory!
+          </span>
+          <span *ngIf="myUserName.touched && myUserName.errors?.minlength" class="text-danger small" >
+            User Name should be min of 3 characters!
+        </span>
          
+          </div>
+
           <div class="form-group">
             <i class='fas fa-key' style='font-size:30px'></i>
-              <label for="password" style="font-family:cursive;">Password:</label>
-              <input 
-                  type="password" 
-                  class="form-control mx-2" 
-                  placeholder="Enter password" 
-                  id="password"
-                  name="password"
-                   [(ngModel)]="addUserData.password"> 
+            <label for="password" style="font-family:cursive;">Password:</label>
+            <input type="password" class="form-control mx-2" placeholder="Enter password" id="password" name="password" required
+            required 
+            minlength='3'
+            maxlength='20'
+            #myPassword="ngModel"
+            [(ngModel)]="addUserData.password">
+            <span *ngIf="myPassword.touched && myPassword.errors?.required" class="text-danger small" >
+             password is mandatory
+          </span>
+          <span *ngIf="myPassword.touched && myPassword.errors?.minlength" class="text-danger small" >
+            password should be min of 3 characters!
+        </span>
+              
           </div>
           <p style="font-family:cursive;">Role :</p>
           <div class="form-check-inline">
-              <label class="form-check-label" style="font-family:cursive; color:darkred;">
-                <input type="radio" 
-                class="form-check-input" 
-                name="optradio" 
-                value ="admin"
+            <label class="form-check-label" style="font-family:cursive; color:darkred;">
+              <input type="radio" class="form-check-input" name="optradio" value="admin"
                 [(ngModel)]="addUserData.role">Admin
-              </label>
-            </div>
-            <div class="form-check-inline">
-              <label class="form-check-label" style="font-family:cursive;color:darkred;">
-                <input 
-                  type="radio" 
-                   class="form-check-input" 
-                   name="optradio" 
-                   value = "customer"
-                   [(ngModel)]="addUserData.role">Customer
-              </label>
-            </div>
-          
-      </div>    
-      
-      <div class="card-footer" style="background-color:gainsboro">
-          <button 
-              type="submit" 
-              class="btn btn-primary">Login</button>
+            </label>
+          </div>
+          <div class="form-check-inline">
+            <label class="form-check-label" style="font-family:cursive;color:darkred;">
+              <input type="radio" class="form-check-input" name="optradio" value="customer"
+                [(ngModel)]="addUserData.role">Customer
+            </label>
+          </div>
+
+        </div>
+
+        <div class="card-footer" style="background-color:gainsboro">
+          <button type="submit" class="btn btn-primary"
+          [disabled]="myForm.invalid">Login</button>
+        </div>
       </div>
-    </div>
-  
-      </form>
+
+    </form>
 
   </div>
-  </div>
-  
-
-
-<!-- <div class="container">
-    <div class="card mt-4">
-        <form  (ngSubmit)="login()"> 
-        <div class="card-header bg-primary text-white display-4">
-            Login Form
-        </div>
-        <div class="card-body">
-            <div class="form-group">
-                <label for="userName">User Name:*</label>
-                <input 
-                    type="text" 
-                    class="form-control mx-2" 
-                    placeholder="Enter user name" 
-                    id="userName"
-                    name="userName" 
-                    [(ngModel)]="addUserData.username">
-            </div>
-           
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input 
-                    type="password" 
-                    class="form-control mx-2" 
-                    placeholder="Enter password" 
-                    id="password"
-                    name="password"
-                     [(ngModel)]="addUserData.password"> 
-            </div>
-            <p>Role :</p>
-            <div class="form-check-inline">
-                <label class="form-check-label">
-                  <input type="radio" 
-                  class="form-check-input" 
-                  name="optradio" 
-                  value ="admin"
-                  [(ngModel)]="addUserData.role">admin
-                </label>
-              </div>
-              <div class="form-check-inline">
-                <label class="form-check-label">
-                  <input 
-                    type="radio" 
-                     class="form-check-input" 
-                     name="optradio" 
-                     value = "customer"
-                     [(ngModel)]="addUserData.role">customer
-                </label>
-              </div>
-            
-        </div>    
-        
-        <div class="card-footer">
-            <button 
-                type="submit" 
-                class="btn btn-primary">Login</button>
-        </div>
-        </form>
-    </div>
-    </div>
-     -->
+</div>

@@ -1,181 +1,76 @@
-<!-- ---------------------------Order Details--------------------------- -->
-<!-- <div class= "container mt-4">
-  <h1 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
-      Order Details</h1>
-  <div class= "container mt-4">
-      <div class="d-flex justify-content-between">
-       
-                  <div class="col">
-                      <h5 style="color: cornflowerblue;"> Address:</h5> 
-                          <p>
-                          </p>
-                  
-                    </div>
-                    <div class="col">
-                      <h5 style="color: cornflowerblue;">Quantity: </h5>
-                      <p>{{allOrder.quantity}}
-                      </p>
-                      
-                    </div>
-                    <div class="col">
-                      <h5 style="color: cornflowerblue;">Total Cost: </h5>
-                          <p>{{allOrder.orderTotal}}
-                          </p>
-                          
-  
-                    </div>
-                    <small>{{allOrder.orderDate}}</small>
-              </div>
-          </div> -->
-  
-  
-  <!-- ---------------------------Book Details--------------------------- -->
-  
-      <!-- <div class= "container mt-4" style="background-color:lavender">
-          <div class="d-flex justify-content-between">
-              <small>Published Date: 08-07-2020</small>
-              <small>LastUpdated Date: 08-07-2020</small>
-  
-              
-                  </div>
-                      <div class="d-flex justify-content-between">
-                      </div>
-                      <h2 style="font-family:Georgia, 'Times New Roman', Times, serif;">Naruto: Itachi's Story</h2>
-                      <div class = "row">
-                          <div class="col">
-                      <div class="sq align-self-center "> <img class="img-fluid align-self-center" 
-                          src="https://i.redd.it/p2ghxr7jmvq31.jpg" width="135" height="135" /> 
-                      <h5>Author: <small>Takashi Yano</small></h5>
-                      </div>
-                      </div>
-  
-                      <div class="col">
-                          <h5 style="color: cornflowerblue;">  Address: 
-                              <small>Itachi and Sasuke come of age and find their places in the ninja world in 
-                                  this three-volume epic.
-                                  A new series of prose novels, straight from the worldwide
-                                  Naruto franchise. Naruto’s allies and enemies take center 
-                                  stage in these fast-paced adventures,with each volume focusing on a particular clan mate, ally, team…or villain.
-                          </small>
-                      </h5>
-                        </div>
-                        <div class="col">
-                          <h5 style="color: cornflowerblue;">Category: 
-                          <small>Anime
-                          </small>
-                          </h5>
-                        </div>
-                        <div class="col">
-                          <h5 style="color: cornflowerblue;">Cost: 
-                              <small>Rs.500/-
-                              </small>
-                              </h5>
-                        </div>
-                  </div>
-  
-                  <button class="btn btn-outline-danger"><i class="fa fa-trash"></i> Delete</button>
-  
-              </div>
-  
-              <button class="btn btn-outline-dark"><i class="fas fa-arrow-circle-left"></i>Back</button>
-  
-          </div>
-        </div> -->
+<div class="container mt-4">
+    <h1 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
+        Order Details</h1>
+    <div class="container mt-4">
+        <div class="d-flex justify-content-between">
 
-<!-- ------------------------------------------------- -->
- 
-<!-- <div class="container">
-    <div class="card"  >
-        <form  > 
-        <h5 class="card-header">{{allOrder.orderId}}</h5>
-        <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-         
+            <div class="col">
+                <h5 style="color: cornflowerblue;"> Address:</h5>
+                <p>{{allOrder.customerPojo.addressPojo.address}}
+                </p>
+
+            </div>
+            <div class="col">
+                <h5 style="color: cornflowerblue;">Quantity: </h5>
+                <p>{{allOrder.quantity}}
+                </p>
+
+            </div>
+            <div class="col">
+                <h5 style="color: cornflowerblue;">Total Cost: </h5>
+                <p>{{allOrder.orderTotal}}
+                </p>
+
+
+            </div>
+            <small>Date: {{allOrder.orderDate}}</small>
         </div>
-        </form>
-      </div>
-    </div>  -->
+    </div><br>
 
 
-    <!-- ------------------------------------------------------- -->
-    <!-- ---------------------------Order Details--------------------------- -->
-<div class= "container mt-4">
-  <h1 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
-      Order Details</h1>
-  <div class= "container mt-4">
-      <div class="d-flex justify-content-between">
+
+    <ng-container *ngFor='let book of allOrder.bookpojo'>
+        <p style="align-content: center;"><img class="mx-auto d-block" [src]='book.image' width="135" height="135" />
+        </p>
+    </ng-container>
+    <div class="container mt-4" style="background-color:lavender">
+
+        <div class="d-flex justify-content-between">
+        </div>
+        <ng-container *ngFor='let book of allOrder.bookpojo'>
+
+            <h2 style="font-family:Georgia, 'Times New Roman', Times, serif;">Title:{{book.title}}</h2>
+        </ng-container>
+        <div class="row">
+            <div class="col">
+                <div class="sq align-self-center ">
+                    <h5>Author:
+                        <ng-container *ngFor='let book of allOrder.bookpojo'>
+                            {{book.author}}
+                        </ng-container>
+                    </h5>
+                </div>
+            </div>
+
+            <div class="col">
+                <h5 style="color: cornflowerblue;"> Address:
+                    <small>{{allOrder.customerPojo.addressPojo.address}}
+                    </small>
+                </h5>
+            </div>
+
+            <div class="col">
+                <h5 style="color: cornflowerblue;">Cost:
+                    <ng-container *ngFor='let book of allOrder.bookpojo'>
+                        {{book.price}}
+                    </ng-container>
+                </h5>
+            </div>
+        </div>
+
+    </div>
+    <div class="d-flex justify-content-between">
+        <button class="btn btn-outline-dark" (click)='back()'><i class="fas fa-arrow-circle-left"></i>Back</button>
        
-                  <div class="col">
-                      <h5 style="color: cornflowerblue;"> Address:</h5> 
-                          <p>{{allOrder.customerPojo.addressPojo.address}}
-                          </p>
-                  
-                    </div>
-                    <div class="col">
-                      <h5 style="color: cornflowerblue;">Quantity: </h5>
-                      <p>{{allOrder.quantity}}
-                      </p>
-                      
-                    </div>
-                    <div class="col">
-                      <h5 style="color: cornflowerblue;">Total Cost: </h5>
-                          <p>{{allOrder.orderTotal}}
-                          </p>
-                          
-  
-                    </div>
-                    <small>Date: {{allOrder.orderDate}}</small>
-              </div>
-          </div>
-  
-  
-  <!-- ---------------------------Book Details--------------------------- -->
-  
-      <div class= "container mt-4" style="background-color:lavender">
-          <div class="d-flex justify-content-between">
-              <small>Published Date: <!--{{allOrder.bookint.publishhDate}}--></small>
-              <small>LastUpdated Date: <!--{{bookint.LastUpdated}}--></small>
-  
-              
-                  </div>
-                      <div class="d-flex justify-content-between">
-                      </div>
-                      <h2 style="font-family:Georgia, 'Times New Roman', Times, serif;">Naruto: Itachi's Story</h2>
-                      <div class = "row">
-                          <div class="col">
-                      <div class="sq align-self-center "> <img class="img-fluid align-self-center" 
-                          src="https://i.redd.it/p2ghxr7jmvq31.jpg" width="135" height="135" /> 
-                      <h5>Author: <small>Takashi Yano</small></h5>
-                      </div>
-                      </div>
-  
-                      <div class="col">
-                          <h5 style="color: cornflowerblue;">  Address: 
-                              <small>Itachi and Sasuke come of age and find their places in the ninja world in 
-                                  this three-volume epic.
-                                  A new series of prose novels, straight from the worldwide
-                                  Naruto franchise. Naruto’s allies and enemies take center 
-                                  stage in these fast-paced adventures,with each volume focusing on a particular clan mate, ally, team…or villain.
-                          </small>
-                      </h5>
-                        </div>
-                        <div class="col">
-                          <h5 style="color: cornflowerblue;">Category: 
-                          <small>Anime
-                          </small>
-                          </h5>
-                        </div>
-                        <div class="col">
-                          <h5 style="color: cornflowerblue;">Cost: 
-                              <small>Rs.500/-
-                              </small>
-                              </h5>
-                        </div>
-                  </div>
-  
-              </div>
-              <div class="d-flex justify-content-between">
-              <button class="btn btn-outline-dark" (click) = 'back()'><i class="fas fa-arrow-circle-left"></i>Back</button>
-              <button class="btn btn-outline-danger"><i class="fa fa-trash"></i> Delete</button>
-          </div></div>
+    </div>
+</div>

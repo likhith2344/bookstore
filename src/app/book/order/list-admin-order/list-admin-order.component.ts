@@ -10,27 +10,26 @@ import { OrderService } from '../../order.service';
 export class ListAdminOrderComponent implements OnInit {
 
   title: string = "List all book details"
-   allOrders : any [] =[];
-   constructor(private orderService: OrderService, private router: Router) { }
+  allOrders: any[] = [];
+  constructor(private orderService: OrderService, private router: Router) { }
 
-   ngOnInit(): void {
-     this.orderService.getAllOrderss().subscribe((response)=>{ 
-       console.log("resp in LAO:" +JSON.stringify(response));
-       this.allOrders = response;  
-       console.log(this.allOrders);
+  ngOnInit(): void {
+    this.orderService.getAllOrderss().subscribe((response) => {
+      console.log("resp in LAO:" + JSON.stringify(response));
+      this.allOrders = response;
+      console.log(this.allOrders);
     });
   }
 
 
   listAllOrders() {
-    this.orderService.getAllOrderss().subscribe((response)=>{
-        console.log("resp*****:" +response);
-       this.allOrders = response;
-       console.log("allOrders:" + this.allOrders );
+    this.orderService.getAllOrderss().subscribe((response) => {
+      console.log("resp*****:" + response);
+      this.allOrders = response;
+      console.log("allOrders:" + this.allOrders);
     });
-    console.log("aync" );
-    // let book: any = this.orderService.getAllOrders();
-    // console.log("json obj:" + JSON.stringify(book));
+    console.log("aync");
+
   }
 
 

@@ -1,114 +1,70 @@
-<div class= "container">
-    <div class = "card mt-4">
-        <form #myForm = "ngForm" (ngSubmit)="addBook(myForm)">
-       
-        <div class ="card-header bg-primary text-white display-4"> Add Book to Store</div>
-        <div class ="card-body "> 
-            <div class="form-group">
-                <label for="bookName">Book Name : * </label>
-                <input 
-                    type="text" 
-                    class="form-control mx-2" 
-                    placeholder="Enter Book name" 
-                    id="bookName"
-                    name="bookName"
-                    required
-                    minlength='3'
-                    maxlength='20'
-                    #myBookName="ngModel"
-                    [(ngModel)]="addBookData.title">       
-                   <span *ngIf="myBookName.touched && myBookName.errors?.required" class="text-danger small" >
+<div class="container">
+    <div class="card mt-4">
+        <form #myForm="ngForm" (ngSubmit)="addBook(myForm)">
+
+            <div class="card-header bg-primary text-white display-4"> Add Book to Store</div>
+            <div class="card-body ">
+                <div class="form-group">
+                    <label for="bookName">Book Name : * </label>
+                    <input type="text" class="form-control mx-2" placeholder="Enter Book name" id="bookName"
+                        name="bookName" required minlength='3' maxlength='20' #myBookName="ngModel"
+                        [(ngModel)]="addBookData.title">
+                    <span *ngIf="myBookName.touched && myBookName.errors?.required" class="text-danger small">
                         Book Name is mandatory!
                     </span>
-                    <span *ngIf="myBookName.touched && myBookName.errors?.minlength" class="text-danger small" >
+                    <span *ngIf="myBookName.touched && myBookName.errors?.minlength" class="text-danger small">
                         Book Name should be min of 3 characters!
                     </span>
-            </div>
-            <div class="form-group">
-                <label for="author">Author Name : *</label>
-                <input 
-                    type="type" 
-                    class="form-control mx-2" 
-                    placeholder="Enter Author Name"
-                    id="author"
-                    name="author"
-                    required
-                    minlength='3'
-                    maxlength='20'
-                    #myAuthorName="ngModel"
-                    [(ngModel)]="addBookData.author">
-                    <span *ngIf="myAuthorName.touched && myAuthorName.errors?.required" class="text-danger small" >
+                </div>
+                <div class="form-group">
+                    <label for="author">Author Name : *</label>
+                    <input type="type" class="form-control mx-2" placeholder="Enter Author Name" id="author"
+                        name="author" required minlength='3' maxlength='20' #myAuthorName="ngModel"
+                        [(ngModel)]="addBookData.author">
+                    <span *ngIf="myAuthorName.touched && myAuthorName.errors?.required" class="text-danger small">
                         Author Name is mandatory!
                     </span>
-                    <span *ngIf="myAuthorName.touched && myAuthorName.errors?.minlength" class="text-danger small" >
+                    <span *ngIf="myAuthorName.touched && myAuthorName.errors?.minlength" class="text-danger small">
                         Author Name should be min of 2 characters!
                     </span>
 
-            </div>
-            <div class="form-group">
-                <label for="description">Description : </label>
-                <input 
-                    type="type" 
-                    class="form-control mx-2" 
-                    placeholder="Enter book description" 
-                    id="description"
-                    name="description"
-                    [(ngModel)]="addBookData.description">
-                   
-            </div>
-            <div class="form-group">
-                <label for="price">Book price:</label>
-                <input 
-                    type="number" 
-                    class="form-control mx-2" 
-                    placeholder="Enter book price" 
-                    id="price"
-                    name="price"
-                    required
-                    #myBookPrice="ngModel"
-                    [(ngModel)]="addBookData.price"> 
-                    <span *ngIf="myBookPrice.touched && myBookPrice.errors?.required" class="text-danger small" >
-                       Price is mandatory!
+                </div>
+                <div class="form-group">
+                    <label for="description">Description : </label>
+                    <input type="type" class="form-control mx-2" placeholder="Enter book description" id="description"
+                        name="description" [(ngModel)]="addBookData.description">
+
+                </div>
+                <div class="form-group">
+                    <label for="price">Book price:</label>
+                    <input type="number" class="form-control mx-2" placeholder="Enter book price" id="price"
+                        name="price" required #myBookPrice="ngModel" [(ngModel)]="addBookData.price">
+                    <span *ngIf="myBookPrice.touched && myBookPrice.errors?.required" class="text-danger small">
+                        Price is mandatory!
                     </span>
-            </div>
-            <div class="form-group">
-                <label for="publishDate">publishDate:</label>
-                <input 
-                    type="date" 
-                    class="form-control mx-2" 
-                    id="publishDate"
-                    name="publishDate"
-                    [(ngModel)]="addBookData.publishDate"> 
-            </div>
-            <div class="form-group">
-                <label for="lastUpdatedOn">lastUpdatedOn:</label>
-                <input 
-                    type="date" 
-                    class="form-control mx-2" 
-                    id="lastUpdatedOn"
-                    name="lastUpdatedOn"
-                    [(ngModel)]="addBookData.lastUpdatedOn"> 
-            </div>
-            <div class="form-group">
-                <label for="image">Book Image URL:</label>
-                <input 
-                    type="type" 
-                    class="form-control mx-2" 
-                    placeholder="Enter book image url" 
-                    id="image"
-                    name="image"
-                    [(ngModel)]="addBookData.image">
+                </div>
+                <div class="form-group">
+                    <label for="publishDate">publishDate:</label>
+                    <input type="date" class="form-control mx-2" id="publishDate" name="publishDate"
+                        [(ngModel)]="addBookData.publishDate">
+                </div>
+                <div class="form-group">
+                    <label for="lastUpdatedOn">lastUpdatedOn:</label>
+                    <input type="date" class="form-control mx-2" id="lastUpdatedOn" name="lastUpdatedOn"
+                        [(ngModel)]="addBookData.lastUpdatedOn">
+                </div>
+                <div class="form-group">
+                    <label for="image">Book Image URL:</label>
+                    <input type="type" class="form-control mx-2" placeholder="Enter book image url" id="image"
+                        name="image" [(ngModel)]="addBookData.image">
                 </div>
 
-        </div>
-        <div class ="card-footer"> 
-            <button 
-            type="submit" 
-            class="btn btn-success"
-            [disabled]="myForm.invalid">Add Book </button>
-            <button class="btn btn-danger mx-2 float-right" type="submit" (click)="back()">Back</button>
-        </div>
-        
+            </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-success" [disabled]="myForm.invalid">Add Book </button>
+                <button class="btn btn-danger mx-2 float-right" type="submit" (click)="back()">Back</button>
+            </div>
+
         </form>
     </div>
-    </div>
+</div>

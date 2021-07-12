@@ -11,49 +11,49 @@ import { ListCustomerBooksService } from '../list-customer-books.service';
   styleUrls: ['./list-customer-books.component.css']
 })
 export class ListCustomerBooksComponent implements OnInit {
-  bookData : any={
-    title : '',
-    author : '',
-    description : '',
-    price : '',
-    publishhDate : '',
-    lastUpdatedOn : '',
-  
-    image : ''
+  bookData: any = {
+    title: '',
+    author: '',
+    description: '',
+    price: '',
+    publishhDate: '',
+    lastUpdatedOn: '',
+
+    image: ''
   }
 
-  allBook: book[] = [];  
-  //productService: ProductService;
+  allBook: book[] = [];
+ 
 
   myError = '';
-  constructor(private customerBookService:ListCustomerBooksService, private router: Router,
-              private cartService: CartServiceService) {
-    // this.router.navigate(['list-customer-books']);
-   }
+  constructor(private customerBookService: ListCustomerBooksService, private router: Router,
+    private cartService: CartServiceService) {
+   
+  }
 
   ngOnInit(): void {
     this.customerBookService.getAllBooks().subscribe((response) => {
-      console.log(response);
+      
       this.allBook = response;
-      console.log(this.allBook);
+     
     },
-    (error) => {
-      console.log(error.error.message);
-      this.myError = error.error.message;
-    });
-    console.log("this is after the asynchronous call");
+      (error) => {
+        console.log(error.error.message);
+        this.myError = error.error.message;
+      });
+   
   }
-view(title:any){
-  this.customerBookService.view(title).subscribe((response)=>{
-    this.bookData = response;
-    console.log(title);
-    this.router.navigate(['view-customer-book',title]);
-  })
+  view(title: any) {
+    this.customerBookService.view(title).subscribe((response) => {
+      this.bookData = response;
+      console.log(title);
+      this.router.navigate(['view-customer-book', title]);
+    })
 
-}
-addToCart(bookData: book) {
-  this.cartService.addToCart(bookData);
-  //console.log("cart"+this.cartService.addToCart(bookData));
-  window.alert('Your book has been added to the cart!');
-}
+  }
+  addToCart(bookData: book) {
+    this.cartService.addToCart(bookData);
+   
+    window.alert('Your book has been added to the cart!');
+  }
 }

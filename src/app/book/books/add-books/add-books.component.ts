@@ -12,68 +12,61 @@ import { book } from '../bookint';
 })
 export class AddBooksComponent implements OnInit {
 
-  addBookData : book = <book> {
+  addBookData: book = <book>{
     bookId: 0,
     title: '',
-    author : '',
-    description : '',
-    price : '',
-    publishDate : '',
+    author: '',
+    description: '',
+    price: '',
+    publishDate: '',
     lastUpdatedOn: '',
-    image:'',
-    categories :{
-      categoryId :0,
-      categoryName:'',
-      categoryImageUrl:''
+    image: '',
+    categories: {
+      categoryId: 0,
+      categoryName: '',
+      categoryImageUrl: ''
     }
-    // review:{
-    //     reviewId : 0,
-    //     headLine :'',
-    //     rating : 0,
-    //     reviewOn :''
-     // }
+   
   }
 
-  constructor(private categoryService :CategoryService,private booksService :BooksService,private router: Router ) { }
+  constructor(private categoryService: CategoryService, private booksService: BooksService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  addBook(myForm : NgForm){
+  addBook(myForm: NgForm) {
     console.log(myForm)
-     let mybook : book = {
+    let mybook: book = {
       bookId: this.addBookData.bookId,
       title: this.addBookData.title,
-      author : this.addBookData.author,
-      description : this.addBookData.description,
-      price : this.addBookData.price,
-      publishDate : this.addBookData.publishDate,
+      author: this.addBookData.author,
+      description: this.addBookData.description,
+      price: this.addBookData.price,
+      publishDate: this.addBookData.publishDate,
       lastUpdatedOn: this.addBookData.lastUpdatedOn,
-      image :this.addBookData.image,
-      categories : {
-        categoryId  :this.categoryService.catg.categoryId,
-        categoryName  :this.categoryService.catg. categoryName,
-        categoryImageUrl : this.categoryService.catg.categoryImageUrl
+      image: this.addBookData.image,
+      categories: {
+        categoryId: this.categoryService.catg.categoryId,
+        categoryName: this.categoryService.catg.categoryName,
+        categoryImageUrl: this.categoryService.catg.categoryImageUrl
       },
-       // review: this.addBookData.review  
+      
     }
 
-    console.log("addbokk:" + JSON.stringify(mybook));
-    console.log("ca:" +JSON.stringify(this.categoryService.catg));
-    // let allBooks = this.booksService.addBook(mybook);
-    // console.log(allBooks);
+    
+  
 
     this.booksService.addBook(mybook).subscribe((response) => {
-        console.log(" in add ***: " +JSON.stringify(response));
-         //this.router.navigate(['list-all-books']);
-        this.router.navigate(['list-admin-books']);
-      });
-  
-    }
-
-    back(){
+    
+    
       this.router.navigate(['list-admin-books']);
-    }
+    });
+
   }
+
+  back() {
+    this.router.navigate(['list-admin-books']);
+  }
+}
 
 

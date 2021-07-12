@@ -37,14 +37,14 @@ export class EditBooksComponent implements OnInit {
 
     let bkid: any = this.activatedRoute.snapshot.paramMap.get('bookId');
  
-    console.log(bkid);
+   
   
       this.booksService.getBook(bkid).subscribe((response) => {
           console.log('response' + response)
      
     this.editBookData = response;
      
-     console.log(response);
+     
      
      });
     }

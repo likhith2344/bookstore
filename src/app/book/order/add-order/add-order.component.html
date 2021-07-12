@@ -1,13 +1,45 @@
+<div class="container-fluid">
+  <div class="card">
+    <h2>Thank You for Shopping!</h2>
+    <div class="d-flex justify-content-between">
 
-<div class="container">
-    <div class="card"  >
-        <form  > 
-        <h5 class="card-header">Your Order</h5>
-        <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-         
-        </div>
-        </form>
+      <div class="col">
+        <h5 style="color: cornflowerblue;"> Order Id:</h5>
+        <p>{{allOrder.orderId}}
+        </p>
+
+      </div>
+
+      <div class="col">
+        <h5 style="color: cornflowerblue;">Address: </h5>
+        <p>{{allOrder.customerPojo.addressPojo.address}}
+        </p>
+      </div>
+
+      <div class="col">
+        <h5 style="color: cornflowerblue;">Quantity: </h5>
+        <p>{{allOrder.quantity}}
+        </p>
+
+      </div>
+      <div class="col">
+        <h5 style="color: cornflowerblue;">Total Cost: </h5>
+        <p>{{allOrder.orderTotal}}
+        </p>
+
+
+      </div>
+      <div class="col">
+        <h5 style="color: cornflowerblue;">Payment Method: </h5>
+        <p>{{allOrder.paymentMethod}}
+        </p>
+
+      </div>
+      <div class="col">
+        <h5 style="color: cornflowerblue;">Payment Status: </h5>
+        <p>{{allOrder.status}}
+        </p>
       </div>
     </div>
+    <button class="btn btn-primary" (click)=back()>Continue Shopping</button>
+  </div>

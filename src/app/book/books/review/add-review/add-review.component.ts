@@ -12,123 +12,110 @@ import { ViewCustomerBookService } from '../../view-customer-book.service';
   styleUrls: ['./add-review.component.css']
 })
 export class AddReviewComponent implements OnInit {
-  reviewData={
-    headLine : '',
-    comment : '',
-    rating : 0,
-    reviewOn : new Date(),
-    book : {
-      bookId : 0,
-      title : '',
-      author : '',
-      description : '',
-      price : '',
-      publishDate : '',
-      lastUpdatedOn : '',
-      image : '',
-      categories:{
-        categoryId : 0,
-        categoryName :'',
+  reviewData = {
+    headLine: '',
+    comment: '',
+    rating: 0,
+    reviewOn: new Date(),
+    book: {
+      bookId: 0,
+      title: '',
+      author: '',
+      description: '',
+      price: '',
+      publishDate: '',
+      lastUpdatedOn: '',
+      image: '',
+      categories: {
+        categoryId: 0,
+        categoryName: '',
         categoryImageUrl: ''
-       }
-      // review :book[]=[]
-  
+      }
+     
+
     },
-    customer :{
-      customerId :0,
-      mobileNumber : 0,
-      fullName : '',
-      registerOn : '',
-      userPojo:{
-      
+    customer: {
+      customerId: 0,
+      mobileNumber: 0,
+      fullName: '',
+      registerOn: '',
+      userPojo: {
+
         username: '',
-      password: '',
-      role : ''
+        password: '',
+        role: ''
       },
-    
-    addressPojo:  {
-      addressId: 0,
-      address: '',
-      city: '',
-      country: '',
-      pincode: ''
-    }
+
+      addressPojo: {
+        addressId: 0,
+        address: '',
+        city: '',
+        country: '',
+        pincode: ''
+      }
     }
   }
-  
-  BookData= {
-    bookId : 0,
-    title : '',
-    author : '',
-    description : '',
-    price : '',
-    publishDate : '',
-    lastUpdatedOn : '',
-    image : '',
-    categories : {
-      categoryId : 0,
-      categoryName :'',
+
+  BookData = {
+    bookId: 0,
+    title: '',
+    author: '',
+    description: '',
+    price: '',
+    publishDate: '',
+    lastUpdatedOn: '',
+    image: '',
+    categories: {
+      categoryId: 0,
+      categoryName: '',
       categoryImageUrl: ''
 
     }
   }
 
-  constructor(private viewCustomerService :ViewCustomerBookService,
-    private activatedRoute : ActivatedRoute,
-    private router :Router,
+  constructor(private viewCustomerService: ViewCustomerBookService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
     private orderService: OrderService,
     private loginService: LoginService,
-    private cartService : CartServiceService) { 
-// this.bookForm = new FormGroup({
-//   title : new FormControl(),
-//   bookId : new FormControl(),
-//   author : new FormControl(),
-//   description : new FormControl(),
-//    image: new FormControl(),
-//   // productImageUrl : new FormControl()
-// })
-//this.router.navigate(['view-customer-book']);
-}
+    private cartService: CartServiceService) {
+   
+  }
 
-ngOnInit(): void {
-  let title : any = this.activatedRoute.snapshot.paramMap.get('title')
-console.log("before response"+title);
-this.viewCustomerService.getBook(title).subscribe((response)=>{
-this.BookData=response;
-})
-}
+  ngOnInit(): void {
+    let title: any = this.activatedRoute.snapshot.paramMap.get('title')
+   
+    this.viewCustomerService.getBook(title).subscribe((response) => {
+      this.BookData = response;
+    })
+  }
 
-submit(title:any){
-let titles : any = this.activatedRoute.snapshot.paramMap.get('title')
-console.log("before response"+title);
-this.viewCustomerService.getBook(titles).subscribe((response)=>{
-this.BookData=response;
-// this.BookData.setValue(response);
-console.log("after response"+title);
+  submit(title: any) {
+    let titles: any = this.activatedRoute.snapshot.paramMap.get('title')
+   
+    this.viewCustomerService.getBook(titles).subscribe((response) => {
+      this.BookData = response;
+     
+      this.reviewData.book = response;
 
-this.reviewData.book=response;
+      console.log(this.reviewData.book.author);
 
-console.log(this.reviewData.book.author);
+      let userName: any = this.activatedRoute.snapshot.paramMap.get('userName')
+     
+      this.orderService.getCustomerByUserName(this.loginService.newuser.username).subscribe((response) => {
+        this.reviewData.customer = response;
+    
+        this.viewCustomerService.addReview(this.reviewData).subscribe((response) => {
+          this.reviewData = response;
+       
+          this.router.navigate(['view-customer-book', title]);
 
-let userName : any =this.activatedRoute.snapshot.paramMap.get('userName')
-console.log('from param '+userName);
-this.orderService.getCustomerByUserName(this.loginService.newuser.username).subscribe((response) => {
-this.reviewData.customer=response;
-console.log(this.reviewData);
-
-this.viewCustomerService.addReview(this.reviewData).subscribe((response)=>{
-this.reviewData=response;
-console.log(this.reviewData);
-this.router.navigate(['view-customer-book',title]);
-
-});
+        });
 
 
-});
-});
-}
-  // submit(){
-  //   this.router.navigate(['view-customer-book'])
-  // }
+      });
+    });
+  }
+  
 
 }

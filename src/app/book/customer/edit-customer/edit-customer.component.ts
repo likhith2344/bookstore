@@ -16,39 +16,39 @@ export class EditCustomerComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private orderService: OrderService,
-    private loginService :LoginService
-    ){}
+    private loginService: LoginService
+  ) { }
 
-    customer: Customer= {
-      customerId: 0,
-      fullName:'',
-      mobileNumber: '',
-     registerOn : '',
+  customer: Customer = {
+    customerId: 0,
+    fullName: '',
+    mobileNumber: '',
+    registerOn: '',
     addressPojo: {
-      addressId :0,
-      address:'',
+      addressId: 0,
+      address: '',
       city: '',
-      
+
       country: '',
       pincode: 0
     },
-      userPojo:{
-        
+    userPojo: {
+
       username: '',
       password: '',
       role: ''
     }
   }
-  
+
 
   ngOnInit(): void {
     let username: any = this.activatedRoute.snapshot.paramMap.get('username');
     console.log(username);
-       this.orderService.getCustomerByUserName(this.loginService.newuser.username).subscribe((response) => {
-         console.log('response' + response)
-     this.customer = response;
+    this.orderService.getCustomerByUserName(this.loginService.newuser.username).subscribe((response) => {
+      console.log('response' + response)
+      this.customer = response;
       console.log(response);
-    
+
     });
   }
 
@@ -57,11 +57,13 @@ export class EditCustomerComponent implements OnInit {
     console.log(this.customer)
     this.customerService.updateCustomer(this.customer).subscribe((response) => {
       console.log(response);
-      this.router.navigate(['list-customer-book',response]);
+      this.router.navigate(['list-customer-book', response]);
     });
 
   }
-
+  back() {
+    this.router.navigate(['list-customer-book']);
+  }
 
 
 }

@@ -13,46 +13,38 @@ import { CartServiceService } from './cart-service.service';
 })
 export class CartComponent implements OnInit {
   bookData = {
-    title : '',
-    author : '',
-    description : '',
-    price : '',
-    publishhDate : '',
-    lastUpdatedOn : '',
-  
-    image : ''
+    title: '',
+    author: '',
+    description: '',
+    price: '',
+    publishhDate: '',
+    lastUpdatedOn: '',
+
+    image: ''
   }
- items: book[]=[];
+  items: book[] = [];
   constructor(private cartService: CartServiceService,
-              private activatedRoute: ActivatedRoute,
-              private viewCustomerService: ViewCustomerBookService,
-              private router :Router) { }
+    private activatedRoute: ActivatedRoute,
+    private viewCustomerService: ViewCustomerBookService,
+    private router: Router) { }
 
 
   ngOnInit(): void {
-    this.items= [...this.cartService.getItems()];
-    // let title : any = this.activatedRoute.snapshot.paramMap.get('title')
-    // console.log("before response"+title);
-    // this.viewCustomerService.getBook(title).subscribe((response)=>{
-   
-    //   // this.BookData.setValue(response);
-    //   console.log("after response"+title);
-    //  this.bookData= response;
-    // // this.reviewData.book=response;
-     
-    // //  console.log(this.BookData);
-    // //  console.log(this.reviewData.book.author);
-    // });
+    this.items = [...this.cartService.getItems()];
+
   }
-    
-  clearCart(bookId:number) {
-   this.items= this.cartService.clearCart(bookId);
-    
+
+  clearCart(bookId: number) {
+    this.items = this.cartService.clearCart(bookId);
+
   }
-  
-  placeOrder(){
-this.router.navigate(['add-order'])
+
+  placeOrder() {
+    this.router.navigate(['add-order'])
   }
+  back() {
+    this.router.navigate(['list-customer-book'])
   }
+}
 
 

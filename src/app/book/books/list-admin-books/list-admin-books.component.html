@@ -1,20 +1,13 @@
-
-<div class="container" >
+<div class="container">
     <h3 class='display-4'>{{ title }}</h3>
-    <button
-    type="button" 
-    class ='btn btn-success my-2'
-    (click) ='goToAdd()'>Add Book</button>
-    <button 
-        class="btn btn-primary my-2 float-right" 
-        type="submit" 
-        (click)="back()"> Back </button>
-    <table class="table table-hover table-success" >
+    <button type="button" class='btn btn-success my-2' (click)='goToAdd()'>Add Book</button>
+    <button class="btn btn-primary my-2 float-right" type="submit" (click)="back()"> Back </button>
+    <table class="table table-hover table-success">
         <thead>
             <tr>
                 <th>BookId</th>
                 <th>Category</th>
-                <th>Title </th> 
+                <th>Title </th>
                 <th>Author</th>
                 <th>Description</th>
                 <th>Published Date</th>
@@ -23,34 +16,24 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let book of allBooks"  >
-                 <td *ngIf="book.categories.categoryName == ctype() "> {{book.bookId }}</td> 
-                 <td *ngIf="book.categories.categoryName == ctype()"> {{book.categories.categoryName }}</td> 
-                 <td *ngIf="book.categories.categoryName == ctype()"> {{book.title}}</td> 
-                 <td *ngIf="book.categories.categoryName == ctype()"> {{book.author}}</td>
-                 <td *ngIf="book.categories.categoryName == ctype()"> {{book.description}}</td> 
-                 <td *ngIf="book.categories.categoryName == ctype()"> {{book.publishDate}}</td>
-                 <td *ngIf="book.categories.categoryName == ctype()"> {{book.lastUpdatedOn}}</td>
-                 <td *ngIf="book.categories.categoryName == ctype()"> {{book.price}}</td> 
+            <tr *ngFor="let book of allBooks">
+                <td *ngIf="book.categories.categoryName == ctype() "> {{book.bookId }}</td>
+                <td *ngIf="book.categories.categoryName == ctype()"> {{book.categories.categoryName }}</td>
+                <td *ngIf="book.categories.categoryName == ctype()"> {{book.title}}</td>
+                <td *ngIf="book.categories.categoryName == ctype()"> {{book.author}}</td>
+                <td *ngIf="book.categories.categoryName == ctype()"> {{book.description}}</td>
+                <td *ngIf="book.categories.categoryName == ctype()"> {{book.publishDate}}</td>
+                <td *ngIf="book.categories.categoryName == ctype()"> {{book.lastUpdatedOn}}</td>
+                <td *ngIf="book.categories.categoryName == ctype()"> {{book.price}}</td>
                 <td *ngIf="book.categories.categoryName == ctype()">
-                <button 
-                    type='button' 
-                    class='btn btn-warning ml-3 '
-                    (click)="editBook(book.bookId)"> 
-                    Edit
-                </button>
-                <button 
-                    type='button' 
-                    class='btn btn-danger ml-3 '
-                    (click)="deleteBook(book.bookId)"> 
-                    Delete
-                </button>
+                    <button type='button' class='btn btn-warning ml-3 ' (click)="editBook(book.bookId)">
+                        Edit
+                    </button>
+                    <button type='button' class='btn btn-danger ml-3 ' (click)="deleteBook(book.bookId)">
+                        Delete
+                    </button>
                 </td>
             </tr>
         </tbody>
     </table>
-  </div> 
-
-
-
-
+</div>

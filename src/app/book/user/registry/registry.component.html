@@ -1,6 +1,6 @@
 <div class="container">
     <div class="content mt-1" style="background:whitesmoke">
-        <form (ngSubmit)="Register()"> 
+        <form #regForm="ngForm" (ngSubmit)="Register()"> 
         <div class="card-header" style="background:thistle">
             <h1 class="text-center">Registration Form</h1>
         </div>
@@ -14,7 +14,13 @@
                     placeholder="Enter Full name" 
                     id="fullName"
                     name="fullName" 
+                    required 
+                    minlength="3" maxlength="20"
+                    #fullName="ngModel" 
                      [(ngModel)]="addCustomerData.fullName"> 
+                     <span
+                     *ngIf="(fullName.touched && !fullName.valid)|| fullName.errors?.minlength" class="text-danger small"> fullName is
+                     required must be in range[3 20]</span>
             </div>
             <div class="row">
                 <div class="col-sm-6 form-group">
@@ -26,7 +32,18 @@
                     placeholder="Enter email" 
                     id="Email"
                     name="Email" 
+                    required 
+                    minlength='3'
+                    maxlength='20'
+                    #myEmail="ngModel"
                      [(ngModel)]="addCustomerData.userPojo.email"> 
+                     <span *ngIf="myEmail.touched && myEmail.errors?.required" class="text-danger small" >
+                        Email is mandatory
+                     </span>
+                     <span *ngIf="myEmail.touched && myEmail.errors?.minlength" class="text-danger small" >
+                       Email should be min of 3 characters!
+                   </span>
+   
         </div>
         <div class="col-sm-6 form-group">
             <i class='fas fa-key' style='font-size:20px'></i>
@@ -37,8 +54,18 @@
                     placeholder="Enter password" 
                     id="password"
                     name="password"
-                     [(ngModel)]="addCustomerData.userPojo.password"> 
-        </div>
+                    required
+                    minlength='3'
+                    maxlength='20'
+                    #myPassword="ngModel"
+                    [(ngModel)]="addCustomerData.userPojo.password">
+                    <span *ngIf="myPassword.touched && myPassword.errors?.required" class="text-danger small" >
+                     password is mandatory
+                  </span>
+                  <span *ngIf="myPassword.touched && myPassword.errors?.minlength" class="text-danger small" >
+                    password should be min of 3 characters!
+                </span>
+            </div>
             </div>
             <div class="form-group">
                 <i class='fas fa-mobile' style='font-size:20px'></i>
@@ -49,7 +76,16 @@
                     placeholder="Enter mobile number" 
                     id="MobileNO"
                     name="MobileNO" 
+                    required 
+                    minlength="8" maxlength="20"
+                    #mobilenumber="ngModel" 
                      [(ngModel)]="addCustomerData.mobileNumber"> 
+                     <span
+                     *ngIf="(mobilenumber.touched && !mobilenumber.valid)|| mobilenumber.errors?.required" class="text-danger small"> 
+                     mobilenumber is mandatory</span>
+                     <span
+                     *ngIf="(mobilenumber.touched && !mobilenumber.valid)|| mobilenumber.errors?.minlength" class="text-danger small"> 
+                     minimum length should be 8</span>
             </div>
             <div class="form-group">
                 <i class='fas fa-user-alt' style='font-size:20px'></i>
@@ -60,8 +96,16 @@
                     placeholder="Enter username" 
                     id="username"
                     name="username" 
+                    required 
+                    minlength="3" maxlength="20"
+                    #username="ngModel" 
                      [(ngModel)]="addCustomerData.userPojo.username"> 
-            </div>
+                     <span *ngIf="username.touched && username.errors?.required" class="text-danger small" >
+                        User Name is mandatory
+                     </span>
+                     <span *ngIf="username.touched && username.errors?.minlength" class="text-danger small" >
+                      User Name should be min of 3 characters!
+                   </span>            </div>
             <div class="form-group">
                 <i class='fas fa-map-marker-alt' style='font-size:20px'></i>
                 <label for="address"style="font-family:cursive">Address:*</label>
@@ -125,7 +169,7 @@
         <div class="card-footer my-3" style="background:wheat">
             <button 
                 type="submit" 
-                class="btn btn-primary">Register</button>
+                class="btn btn-primary"[disabled]=regForm.invalid>Register</button>
         </div>
         </form>
     </div>
@@ -133,121 +177,3 @@
     
 
 
-<!-- <div class="container">
-    <div class="card mt-4">
-        <form (ngSubmit)="Register()"> 
-        <div class="card-header bg-primary text-white display-4">
-            Registration Form
-        </div>
-        <div class="card-body">
-            <div class="form-group">
-                <label for="fullName">Fullname:*</label>
-                <input 
-                    type="text" 
-                    class="form-control mx-2" 
-                    placeholder="Enter Full name" 
-                    id="fullName"
-                    name="fullName" 
-                     [(ngModel)]="addCustomerData.fullName"> 
-            </div>
-            <div class="form-group">
-                <label for="email">Email:*</label>
-                <input 
-                    type="text" 
-                    class="form-control mx-2" 
-                    placeholder="Enter email" 
-                    id="Email"
-                    name="Email" 
-                     [(ngModel)]="addCustomerData.userPojo.email"> 
-            </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input 
-                    type="password" 
-                    class="form-control mx-2" 
-                    placeholder="Enter password" 
-                    id="password"
-                    name="password"
-                     [(ngModel)]="addCustomerData.userPojo.password"> 
-            </div>
-            <div class="form-group">
-                <label for="MobileNO:">MobileNO:*</label>
-                <input 
-                    type="text" 
-                    class="form-control mx-2" 
-                    placeholder="Enter mobile number" 
-                    id="MobileNO"
-                    name="MobileNO" 
-                     [(ngModel)]="addCustomerData.mobileNumber"> 
-            </div>
-            <div class="form-group">
-                <label for="username">Username:*</label>
-                <input 
-                    type="text" 
-                    class="form-control mx-2" 
-                    placeholder="Enter username" 
-                    id="username"
-                    name="username" 
-                     [(ngModel)]="addCustomerData.userPojo.username"> 
-            </div>
-            <div class="form-group">
-                <label for="city">City:</label>
-                <input 
-                    type="text" 
-                    class="form-control mx-2" 
-                    placeholder="Enter cityname" 
-                    id="city"
-                    name="city" 
-                     [(ngModel)]="addCustomerData.addressPojo.city"> 
-            </div>
-            <div class="form-group">
-                <label for="address">Address:*</label>
-                <input 
-                    type="text" 
-                    class="form-control mx-2" 
-                    placeholder="Enter username" 
-                    id="address"
-                    name="address" 
-                     [(ngModel)]="addCustomerData.addressPojo.address"> 
-            </div>
-            <div class="form-group">
-                <label for="country">Country:*</label>
-                <input 
-                    type="text" 
-                    class="form-control mx-2" 
-                    placeholder="Enter countryname" 
-                    id="countryname"
-                    name="countryname" 
-                     [(ngModel)]="addCustomerData.addressPojo.country"> 
-            </div>
-            <div class="form-group">
-                <label for="pincode">Pincode:*</label>
-                <input 
-                    type="text" 
-                    class="form-control mx-2" 
-                    placeholder="Enter pincode" 
-                    id="pincode"
-                    name="pincode" 
-                     [(ngModel)]="addCustomerData.addressPojo.pincode"> 
-            </div>
-            <div class="form-group">
-                <label for="registerOn">Register Date:*</label>
-                <input 
-                    type="date" 
-                    class="form-control mx-2" 
-                    placeholder="Enter register date" 
-                    id="registerdate"
-                    name="registerdate" 
-                     [(ngModel)]="addCustomerData.registerOn"> 
-            </div>
-        </div>    
-        
-        <div class="card-footer">
-            <button 
-                type="submit" 
-                class="btn btn-primary">Register</button>
-        </div>
-        </form>
-    </div>
-    </div>
-     -->

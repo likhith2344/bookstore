@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../auth.service';
 import { LoginService } from '../../login.service';
@@ -20,7 +21,7 @@ export class LoginComponent implements OnInit {
   constructor(private loginService: LoginService,
               private router: Router,
               private authService :AuthService
-              ) { }
+   ) {}
 
   ngOnInit(): void {
   }
@@ -45,3 +46,4 @@ export class LoginComponent implements OnInit {
   }
 
 }
+

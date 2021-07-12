@@ -1,29 +1,27 @@
 <button class="btn btn-primary my-3 float-right" type="submit" (click)="back()"> Back </button><br> <br>
 
 <div clas="container">
-    <!-- <div class="jumbotron"> -->
-
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4;">
-            <div *ngFor="let category of allCategories">
-                <div class="col">
-                    <div class="card-column">
-                        <div class="card-body">
-                            <a href="javascript:void(0);" class="img-wrapper" (click)="imageClick(category.categoryId)">
-                                <img [src]="category.categoryImageUrl" class="img-thumbnail img-responsive"
-                                    style="height: auto;" />
-                            </a>
-                            <button class="btn btn-primary my-3 float-right" type="submit"
-                                (click)="deleteCategory(category.categoryId)"> Delete </button>
-                            <h5 class="card-title" style="font-family: cursive; font-size: 30px; font-weight: 800;">
-                                {{category.categoryName}}</h5>
-
+  
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4;">
+        <div *ngFor="let category of allCategories">
+            <div class="col">
+                <div class="card-column">
+                    <div class="card-body">
+                        <a href="javascript:void(0);" class="img-wrapper" (click)="imageClick(category.categoryId)">
+                            <img [src]="category.categoryImageUrl" class="img-thumbnail img-responsive"
+                                style="height: auto;" />
+                        </a>
+                        <button class="btn btn-primary my-3 float-right" type="submit"
+                            (click)="deleteCategory(category.categoryId)"> Delete </button>
+                        <h5 class="card-title" style="font-family: cursive; font-size: 30px; font-weight: 800;">
+                            {{category.categoryName}}</h5>
 
 
-                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
-        <!-- </div> -->
-        </div>
-        
+    </div>
+   
+</div>
