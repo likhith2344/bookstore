@@ -7,6 +7,8 @@ import { environment } from './environments/environment';
 if (environment.production) {
   enableProdMode();
 }
+if (environment.non){
+}
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
